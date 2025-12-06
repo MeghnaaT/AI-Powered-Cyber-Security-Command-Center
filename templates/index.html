@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">  <!--declares the character encoding-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--makes the webpage responsive, identifies the meta as a viewport perspective, ensures layout width matches the device and sets initial zoom level-->
+        <title>Cyber File Analyzer</title>  <!--set the browser tab title-->
+
+            <link rel="stylesheet" href="/static/style.css">  <!--links an external css file for styling, indicates the linked resource is a stylesheet, path to css file-->
+
+    </head>
+    
+    <body>  <!--visible content and interactive elements-->
+        <div class="container"> <!--container element to group and center content, in css -->
+            <h1>Cybersecurity File Analyzer</h1>
+            <p class="subtitle">Analyze suspicious file securely using AI + Cyber Techniques</p>
+            
+            <form id="uploadForm" enctype="multipart/form-data"> <!--starts a form for file upload, id= unique identifier for scripting and styling, required for uploading files, ensures the file binary is sent correctly-->
+                <div class="upload-box">  <!--wrapper for the file input to style the upload area-->
+                    <input type="file" id="fileInput" name="file" required> <!--makes the input a file selector, javascript hook for event handling, key under which the file will be sent to the server-->
+                </div>
+
+                <button type="submit" id="scanBtn">Scan File</button>  <!--indicates the button submits the form, js look for styling or event handling-->
+            </form>
+            
+            <div id="result"></div> <!--placeholder where scan results will be injected directly-->
+        </div>
+
+        <script src="/static/script.js"></script> <!--loads the js file that handles form submission, requests to backend and update the result div,  Path to js file in static directory-->
+           
+    </body>  
+        
+</html>
+    
