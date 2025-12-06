@@ -1,66 +1,67 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0e0f1a, #1b1e32);
-    color: #fff;
+    font-family: Inter, Arial, sans-serif;
+    background: linear-gradient(135deg, #071229, #0f2233);
+    color: #e6fbff;
     margin: 0;
-    padding: 0;
-    text-align: center;
+    min-height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container{
-    margin-top: 80px;
-    padding: 40px;
-    width: 420px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    display: inline-block;
-    box-shadow: 0px 0px 20px rgba(0,255,247,0.2);    
+    padding: 28px;
+    width: 460px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    box-shadow: 0px 8px 30px rgba(0,255,247,0.06);
+    text-align: center;
 }
 
 h1{
-    margin-bottom: 10px;
+    margin: 0 0 6px 0;
     color: #00f7ff;
 }
 
 .subtittle{
     font-size:14px;
-    opacity: 0.8;
-    margin-bottom: 25px;
+    color: #cceff0;
+    margin: 0 0 18px 0;
 }
 
-.upload-box{
-    margin: 20px 0;
+.upload-row{
+    margin-bottom: 12px;
 }
 
 input[type="file"]{
-    padding:12px;
-    background: #10121c;
-    border: 2px dashed #00f7ff;
-    border-radius: 10px;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 2px dashed rgba(0, 255, 247, 0.25);
+    border-radius: 8px;
     width: 100%;
     color: #fff;
 }
 
-#scanBtn{
-    padding: 12px 25px;
+button#scanBtn{
+    padding: 10px 16px;
     background: #00f7ff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    color: #000;
-    margin-top: 10px;
-    font-weight: bold;
+    color: #001012;
+    margin-top: 6px;
+    font-weight: 600;
 }
 
-#scanBtn:hover {
-    background: #00d0d7;
+.result {
+    margin-top: 18px;
+    padding: 12px;
+    background: rgba(0,255,247,0.04);
+    border-radius: 8px;
+    text-align: left;
+    color: #dff9fb;
+    font-size: 14px;
+    max-height: 320px;
+    overflow: auto;
 }
 
-#result {
-    margin-top: 25px;
-    padding: 15px;
-    background: rgba(0,255,247,0.08);
-    border-radius: 10px;
-    display: none;
-}

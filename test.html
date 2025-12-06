@@ -19,10 +19,10 @@
                     <input type="file" id="fileInput" name="file" required> <!--makes the input a file selector, javascript hook for event handling, key under which the file will be sent to the server-->
                 </div>
 
-                <div><button type="submit" id="scanBtn">Scan File</button></div>  <!--indicates the button submits the form, js look for styling or event handling-->
+                <div></div><button type="submit" id="scanBtn">Scan File</button></div>  <!--indicates the button submits the form, js look for styling or event handling-->
             </form>
             
-            <div id="result" class="result" style="display:none;"></div> <!--placeholder where scan results will be injected directly-->
+            <div id="result"></div> <!--placeholder where scan results will be injected directly-->
         </div>
 
         <script src="/static/script.js"></script> <!--loads the js file that handles form submission, requests to backend and update the result div,  Path to js file in static directory-->

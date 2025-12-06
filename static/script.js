@@ -1,18 +1,74 @@
-document.getElementById("uploadForm").addEventListener("submit", async function(event){  //locates the form with id uploadForm for binding behaviour, adds a listeneer for the submit event, declares the callback as async to use await inside for cleaner asynchronomous code
-    event.preventDefault();  //stops the browser native from submission. Allows handling via js and fetch
+// static/script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('uploadForm');
+  const resultDiv = document.getElementById('result');
 
-    const fileInput = document.getElementById("fileInput");  //grabs the file input element
-    const formData = new FormData(); // Creates the FormData Object, which encodes data as multipart/form-data suitable for file uploads without manual headers
-    formData.append("file", fileInput.files[0]); //appends the first selected file under the key"file". This must match yourserver's expected field name in flask.
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fileInput = document.getElementById('fileInput');
+    if (!fileInput.files || fileInput.files.length === 0) {
+      alert('Please select a file to analyze.');
+      return;
+    }
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
 
-    document.getElementById("result").style.display = "block"; //Ensure that the results container is visibe before showing progress or output
-    document.getElementById("result").innerHTML = "Scanning file...";  //provides immediate user feedback indicating the result is in progress
-    let response = await fetch("/analyze", {  //posts the FormData to the backend endpoint "/analyze". , omits Content-TypeError; the browser sets the correct boundary for multipart/form-data when FormData is used ,  pauses until the server responds, returning a Response object
-        method: "POST",
+    resultDiv.style.display = 'block';
+    resultDiv.textContent = '🔍 Scanning file...';
+
+    try {
+      const resp = await fetch('/analyze', {
+        method: 'POST',
         body: formData
-    });
+      });
 
-    let data = await response.text(); // extracts the response payload a splain text. Use .json() if the server returns JSON, or .text() for HTML/plain output.
-    document.getElementById("result").innerHTML= data;  //injects the server's returned text directly into the result container. If it;s HTML, it will render; if text, it will display as-is.
+      if (!resp.ok) {
+        const err = await resp.json();
+        resultDiv.innerHTML = `<strong style="color: #ffd1d1">Error:</strong> ${err.error || resp.statusText}`;
+        return;
+      }
 
-});  //closes handler: checks the event listener callback
+      const data = await resp.json();
+      resultDiv.innerHTML = prettyPrintAnalysis(data);
+    } catch (err) {
+      resultDiv.innerHTML = `<strong style="color: #ffd1d1">Network Error:</strong> ${err.message}`;
+    }
+  });
+
+  function prettyPrintAnalysis(d) {
+    let html = `<h3>Analysis Report</h3>`;
+    html += `<p><strong>Filename:</strong> ${escape(d.file.filename)} (${d.file.file_size} bytes)</p>`;
+    html += `<p><strong>Declared extension:</strong> ${escape(d.file.ext || '—')}</p>`;
+    html += `<p><strong>SHA-256:</strong> <code>${escape(d.file.sha256)}</code></p>`;
+    html += `<p><strong>MIME type detected:</strong> ${escape(d.mime_type)}</p>`;
+    html += `<p><strong>Magic header (hex):</strong> ${escape(d.magic_header)}</p>`;
+    html += `<p><strong>Detected type (by header):</strong> ${escape(d.detected_type || 'Unknown')}</p>`;
+    html += `<p><strong>Entropy:</strong> ${d.entropy} (0 - 8)</p>`;
+    html += `<p><strong>Risk score:</strong> ${d.risk_score}/100</p>`;
+
+    if (d.risk_reasons && d.risk_reasons.length) {
+      html += `<p><strong>Risk reasons:</strong></p><ul>`;
+      d.risk_reasons.forEach(r => { html += `<li>${escape(r)}</li>`; });
+      html += `</ul>`;
+    }
+
+    if (d.image_info) {
+      html += `<hr><p><strong>Image info:</strong></p>`;
+      html += `<pre>${escape(JSON.stringify(d.image_info, null, 2))}</pre>`;
+    }
+
+    if (d.pdf_info) {
+      html += `<hr><p><strong>PDF info:</strong></p>`;
+      html += `<pre>${escape(JSON.stringify(d.pdf_info, null, 2))}</pre>`;
+    }
+
+    return html;
+  }
+
+  // simple escape to avoid gadget injection in UI
+  function escape(s) {
+    if (s === null || s === undefined) return '';
+    return String(s).replace(/[&<>"'`]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;', '`':'&#96;'})[m]);
+  }
+});
