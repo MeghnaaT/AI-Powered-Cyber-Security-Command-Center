@@ -63,6 +63,37 @@ document.addEventListener('DOMContentLoaded', () => {
       html += `<pre>${escape(JSON.stringify(d.pdf_info, null, 2))}</pre>`;
     }
 
+    if (d.ai_analysis) {
+  html += `<hr><h3>AI Threat Analysis</h3>`;
+  html += `<p><strong>Threat Level:</strong> ${escape(d.ai_analysis.ai_threat_level || 'Unknown')}</p>`;
+  html += `<p><strong>AI Confidence:</strong> ${d.ai_analysis.ai_confidence || 0}%</p>`;
+
+  if (Array.isArray(d.ai_analysis.ai_behavior_summary)) {
+    if (d.ai_analysis.ai_behavior_summary.length > 0) {
+      html += `<p><strong>Behavior Detected:</strong></p><ul>`;
+      d.ai_analysis.ai_behavior_summary.forEach(b => {
+        html += `<li>${escape(b)}</li>`;
+      });
+      html += `</ul>`;
+    }
+  }
+
+  if (Array.isArray(d.ai_analysis.ai_attack_techniques)) {
+    if (d.ai_analysis.ai_attack_techniques.length > 0) {
+      html += `<p><strong>Attack Techniques:</strong></p><ul>`;
+      d.ai_analysis.ai_attack_techniques.forEach(t => {
+        html += `<li>${escape(t)}</li>`;
+      });
+      html += `</ul>`;
+    }
+  }
+}
+html += `
+  <hr>
+  <button onclick="downloadReport()">Download Scan Report</button>
+`;
+
+
     return html;
   }
 
@@ -72,3 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return String(s).replace(/[&<>"'`]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;', '`':'&#96;'})[m]);
   }
 });
+
+function downloadReport(){
+  const content = document.getElementById
+
+}

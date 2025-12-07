@@ -6,6 +6,7 @@ from PIL import Image, UnidentifiedImageError
 from PyPDF2 import PdfReader
 import magic  # python-magic-bin on Windows
 from utils.entropy import calculate_entropy
+from ai_engine import ai_threat_analysis
 
 # Known magic numbers (hex) for quick checks (uppercase)
 MAGIC_NUMBERS = {
@@ -168,5 +169,11 @@ def analyze_file(file_storage):
         "risk_score": risk,
         "risk_reasons": reasons
     }
+    
+    #AI analysis layer
+    ai_result = ai_threat_analysis(result)
+    
+    #merge both results
+    result["ai_analysis"] = ai_result
 
     return result

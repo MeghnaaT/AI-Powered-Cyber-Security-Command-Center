@@ -1,3 +1,15 @@
+import logging
+from datetime import datetime
+
+if not os.path.exists("logs"):
+    os.mkdir("logs")
+
+logging.basicConfig(
+    filename="logs/activity.log",
+    level=logging.INFO,
+    format="%(asctime)s — %(message)s"
+)
+
 import os
 from flask import Flask, render_template, request, jsonify #core class to create your web app, serve html file in /templated folder, gives access to incoming HTTP request data
 from flask_cors import CORS # enables Cross-Origin Resource Sharing, so your frontend(js) can call the Flask API even if hosted seperately
