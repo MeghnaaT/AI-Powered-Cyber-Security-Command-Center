@@ -1,0 +1,650 @@
+2025-12-08 00:37:43,193 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 00:37:43,194 — [33mPress CTRL+C to quit[0m
+2025-12-08 00:37:43,196 —  * Restarting with stat
+2025-12-08 00:37:43,551 —  * Debugger is active!
+2025-12-08 00:37:43,556 —  * Debugger PIN: 190-080-522
+2025-12-08 00:38:12,017 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 00:38:12,018 — [33mPress CTRL+C to quit[0m
+2025-12-08 00:38:12,019 —  * Restarting with stat
+2025-12-08 00:38:12,352 —  * Debugger is active!
+2025-12-08 00:38:12,400 —  * Debugger PIN: 190-080-522
+2025-12-08 00:38:35,233 — 127.0.0.1 - - [08/Dec/2025 00:38:35] "GET / HTTP/1.1" 200 -
+2025-12-08 00:38:35,265 — 127.0.0.1 - - [08/Dec/2025 00:38:35] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 00:38:35,290 — 127.0.0.1 - - [08/Dec/2025 00:38:35] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 00:38:44,323 — 127.0.0.1 - - [08/Dec/2025 00:38:44] "GET /?file=4th_sem_result.pdf HTTP/1.1" 200 -
+2025-12-08 00:38:44,337 — 127.0.0.1 - - [08/Dec/2025 00:38:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:38:44,337 — 127.0.0.1 - - [08/Dec/2025 00:38:44] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:38:49,135 — 127.0.0.1 - - [08/Dec/2025 00:38:49] "[36mGET /?file=4th_sem_result.pdf HTTP/1.1[0m" 304 -
+2025-12-08 00:38:49,146 — 127.0.0.1 - - [08/Dec/2025 00:38:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:38:49,147 — 127.0.0.1 - - [08/Dec/2025 00:38:49] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:38:54,092 — 127.0.0.1 - - [08/Dec/2025 00:38:54] "[36mGET /?file=4th_sem_result.pdf HTTP/1.1[0m" 304 -
+2025-12-08 00:38:54,117 — 127.0.0.1 - - [08/Dec/2025 00:38:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:38:54,120 — 127.0.0.1 - - [08/Dec/2025 00:38:54] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:40:56,965 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 00:40:56,966 — [33mPress CTRL+C to quit[0m
+2025-12-08 00:40:56,968 —  * Restarting with stat
+2025-12-08 00:40:57,388 —  * Debugger is active!
+2025-12-08 00:40:57,390 —  * Debugger PIN: 190-080-522
+2025-12-08 00:49:49,085 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 00:49:49,085 — [33mPress CTRL+C to quit[0m
+2025-12-08 00:49:49,086 —  * Restarting with stat
+2025-12-08 00:49:49,430 —  * Debugger is active!
+2025-12-08 00:49:49,432 —  * Debugger PIN: 190-080-522
+2025-12-08 00:49:52,779 — 127.0.0.1 - - [08/Dec/2025 00:49:52] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 00:49:52,794 — 127.0.0.1 - - [08/Dec/2025 00:49:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:49:52,824 — 127.0.0.1 - - [08/Dec/2025 00:49:52] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:49:58,138 — 127.0.0.1 - - [08/Dec/2025 00:49:58] "[36mGET /?file=4th_sem_result.pdf HTTP/1.1[0m" 304 -
+2025-12-08 00:49:58,154 — 127.0.0.1 - - [08/Dec/2025 00:49:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:49:58,162 — 127.0.0.1 - - [08/Dec/2025 00:49:58] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:50:05,947 — 127.0.0.1 - - [08/Dec/2025 00:50:05] "[36mGET /?file=4th_sem_result.pdf HTTP/1.1[0m" 304 -
+2025-12-08 00:50:05,961 — 127.0.0.1 - - [08/Dec/2025 00:50:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:50:05,963 — 127.0.0.1 - - [08/Dec/2025 00:50:05] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:50:10,053 — 127.0.0.1 - - [08/Dec/2025 00:50:10] "GET /?file=self_minor_project+(1)+(1)+(1).pdf HTTP/1.1" 200 -
+2025-12-08 00:50:10,067 — 127.0.0.1 - - [08/Dec/2025 00:50:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 00:50:10,071 — 127.0.0.1 - - [08/Dec/2025 00:50:10] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:55:25,314 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 00:55:25,314 — [33mPress CTRL+C to quit[0m
+2025-12-08 00:55:25,315 —  * Restarting with stat
+2025-12-08 00:55:25,686 —  * Debugger is active!
+2025-12-08 00:55:25,688 —  * Debugger PIN: 190-080-522
+2025-12-08 00:55:29,416 — 127.0.0.1 - - [08/Dec/2025 00:55:29] "GET /?file=self_minor_project+(1)+(1)+(1).pdf HTTP/1.1" 200 -
+2025-12-08 00:55:29,436 — 127.0.0.1 - - [08/Dec/2025 00:55:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 00:55:29,446 — 127.0.0.1 - - [08/Dec/2025 00:55:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 00:55:35,626 — File scanned: 4th_sem_result.pdf
+2025-12-08 00:55:35,626 — 127.0.0.1 - - [08/Dec/2025 00:55:35] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 01:23:55,454 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 01:23:55,454 — [33mPress CTRL+C to quit[0m
+2025-12-08 01:23:55,455 —  * Restarting with stat
+2025-12-08 01:23:59,873 —  * Debugger is active!
+2025-12-08 01:23:59,875 —  * Debugger PIN: 190-080-522
+2025-12-08 01:24:06,881 — 127.0.0.1 - - [08/Dec/2025 01:24:06] "[36mGET /?file=self_minor_project+(1)+(1)+(1).pdf HTTP/1.1[0m" 304 -
+2025-12-08 01:24:06,893 — 127.0.0.1 - - [08/Dec/2025 01:24:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 01:24:06,898 — 127.0.0.1 - - [08/Dec/2025 01:24:06] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 01:24:12,733 — File scanned: 4th_sem_result.pdf
+2025-12-08 01:24:12,734 — 127.0.0.1 - - [08/Dec/2025 01:24:12] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 01:29:31,784 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 01:29:31,784 — [33mPress CTRL+C to quit[0m
+2025-12-08 01:29:31,786 —  * Restarting with stat
+2025-12-08 01:29:37,402 —  * Debugger is active!
+2025-12-08 01:29:37,403 —  * Debugger PIN: 190-080-522
+2025-12-08 01:30:11,414 — 127.0.0.1 - - [08/Dec/2025 01:30:11] "GET / HTTP/1.1" 200 -
+2025-12-08 01:30:11,438 — 127.0.0.1 - - [08/Dec/2025 01:30:11] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 01:30:11,449 — 127.0.0.1 - - [08/Dec/2025 01:30:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 01:30:36,031 — 127.0.0.1 - - [08/Dec/2025 01:30:36] "POST /scan-phishing HTTP/1.1" 200 -
+2025-12-08 01:30:50,815 — File scanned: Internship_certificate_IBM.pdf
+2025-12-08 01:30:50,815 — 127.0.0.1 - - [08/Dec/2025 01:30:50] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 20:18:20,200 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:18:20,200 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:18:20,204 —  * Restarting with stat
+2025-12-08 20:18:24,435 —  * Debugger is active!
+2025-12-08 20:18:24,438 —  * Debugger PIN: 190-080-522
+2025-12-08 20:18:54,837 — 127.0.0.1 - - [08/Dec/2025 20:18:54] "GET / HTTP/1.1" 200 -
+2025-12-08 20:18:54,880 — 127.0.0.1 - - [08/Dec/2025 20:18:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 20:18:54,910 — 127.0.0.1 - - [08/Dec/2025 20:18:54] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 20:18:54,959 — 127.0.0.1 - - [08/Dec/2025 20:18:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-08 20:21:16,447 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:21:16,447 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:21:16,449 —  * Restarting with stat
+2025-12-08 20:21:21,376 —  * Debugger is active!
+2025-12-08 20:21:21,381 —  * Debugger PIN: 190-080-522
+2025-12-08 20:21:21,498 — 127.0.0.1 - - [08/Dec/2025 20:21:21] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 20:21:21,509 — 127.0.0.1 - - [08/Dec/2025 20:21:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:21:21,564 — 127.0.0.1 - - [08/Dec/2025 20:21:21] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 20:21:25,880 — 127.0.0.1 - - [08/Dec/2025 20:21:25] "POST /password-check HTTP/1.1" 200 -
+2025-12-08 20:21:31,923 — 127.0.0.1 - - [08/Dec/2025 20:21:31] "POST /scan-phishing HTTP/1.1" 200 -
+2025-12-08 20:21:37,957 — File scanned: 4th_sem_result.pdf
+2025-12-08 20:21:37,957 — 127.0.0.1 - - [08/Dec/2025 20:21:37] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 20:23:57,648 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-08 20:23:58,245 —  * Restarting with stat
+2025-12-08 20:24:02,851 —  * Debugger is active!
+2025-12-08 20:24:02,852 —  * Debugger PIN: 190-080-522
+2025-12-08 20:24:07,032 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-08 20:24:07,550 —  * Restarting with stat
+2025-12-08 20:39:11,898 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:39:11,898 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:39:11,900 —  * Restarting with stat
+2025-12-08 20:39:16,197 —  * Debugger is active!
+2025-12-08 20:39:16,198 —  * Debugger PIN: 190-080-522
+2025-12-08 20:39:41,969 — 127.0.0.1 - - [08/Dec/2025 20:39:41] "GET / HTTP/1.1" 200 -
+2025-12-08 20:39:41,984 — 127.0.0.1 - - [08/Dec/2025 20:39:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:39:42,045 — 127.0.0.1 - - [08/Dec/2025 20:39:42] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 20:39:44,653 — 127.0.0.1 - - [08/Dec/2025 20:39:44] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:39:47,698 — 127.0.0.1 - - [08/Dec/2025 20:39:47] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:39:50,517 — 127.0.0.1 - - [08/Dec/2025 20:39:50] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:39:55,793 — 127.0.0.1 - - [08/Dec/2025 20:39:55] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:39:56,258 — 127.0.0.1 - - [08/Dec/2025 20:39:56] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:39:56,485 — 127.0.0.1 - - [08/Dec/2025 20:39:56] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:39:56,691 — 127.0.0.1 - - [08/Dec/2025 20:39:56] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:40:06,356 — 127.0.0.1 - - [08/Dec/2025 20:40:06] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:42:09,324 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:42:09,324 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:42:09,325 —  * Restarting with stat
+2025-12-08 20:42:13,521 —  * Debugger is active!
+2025-12-08 20:42:13,523 —  * Debugger PIN: 190-080-522
+2025-12-08 20:42:26,314 — 127.0.0.1 - - [08/Dec/2025 20:42:26] "GET / HTTP/1.1" 200 -
+2025-12-08 20:42:26,322 — 127.0.0.1 - - [08/Dec/2025 20:42:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:42:26,376 — 127.0.0.1 - - [08/Dec/2025 20:42:26] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 20:42:27,458 — 127.0.0.1 - - [08/Dec/2025 20:42:27] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:44:14,887 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-08 20:44:15,464 —  * Restarting with stat
+2025-12-08 20:44:20,975 —  * Debugger is active!
+2025-12-08 20:44:20,977 —  * Debugger PIN: 190-080-522
+2025-12-08 20:44:26,176 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-08 20:44:26,749 —  * Restarting with stat
+2025-12-08 20:54:10,994 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:54:10,995 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:54:10,996 —  * Restarting with stat
+2025-12-08 20:54:15,168 —  * Debugger is active!
+2025-12-08 20:54:15,169 —  * Debugger PIN: 190-080-522
+2025-12-08 20:54:25,120 — 127.0.0.1 - - [08/Dec/2025 20:54:25] "GET / HTTP/1.1" 200 -
+2025-12-08 20:54:25,133 — 127.0.0.1 - - [08/Dec/2025 20:54:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:54:25,182 — 127.0.0.1 - - [08/Dec/2025 20:54:25] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 20:54:37,980 — 127.0.0.1 - - [08/Dec/2025 20:54:37] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 20:55:34,878 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:55:34,878 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:55:34,879 —  * Restarting with stat
+2025-12-08 20:55:39,554 —  * Debugger is active!
+2025-12-08 20:55:39,556 —  * Debugger PIN: 190-080-522
+2025-12-08 20:55:39,693 — 127.0.0.1 - - [08/Dec/2025 20:55:39] "GET / HTTP/1.1" 200 -
+2025-12-08 20:55:39,711 — 127.0.0.1 - - [08/Dec/2025 20:55:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:55:39,712 — 127.0.0.1 - - [08/Dec/2025 20:55:39] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 20:57:17,568 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 20:57:17,568 — [33mPress CTRL+C to quit[0m
+2025-12-08 20:57:17,569 —  * Restarting with stat
+2025-12-08 20:57:21,730 —  * Debugger is active!
+2025-12-08 20:57:21,732 —  * Debugger PIN: 190-080-522
+2025-12-08 20:57:24,471 — 127.0.0.1 - - [08/Dec/2025 20:57:24] "GET / HTTP/1.1" 200 -
+2025-12-08 20:57:24,484 — 127.0.0.1 - - [08/Dec/2025 20:57:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:57:24,534 — 127.0.0.1 - - [08/Dec/2025 20:57:24] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 20:57:26,712 — 127.0.0.1 - - [08/Dec/2025 20:57:26] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 20:57:26,725 — 127.0.0.1 - - [08/Dec/2025 20:57:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 20:57:26,726 — 127.0.0.1 - - [08/Dec/2025 20:57:26] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 20:57:27,898 — 127.0.0.1 - - [08/Dec/2025 20:57:27] "GET /attack-visualizer HTTP/1.1" 200 -
+2025-12-08 21:05:23,573 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 21:05:23,573 — [33mPress CTRL+C to quit[0m
+2025-12-08 21:05:23,574 —  * Restarting with stat
+2025-12-08 21:05:28,672 —  * Debugger is active!
+2025-12-08 21:05:28,674 —  * Debugger PIN: 190-080-522
+2025-12-08 21:05:32,388 — 127.0.0.1 - - [08/Dec/2025 21:05:32] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:05:32,398 — 127.0.0.1 - - [08/Dec/2025 21:05:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 21:05:32,399 — 127.0.0.1 - - [08/Dec/2025 21:05:32] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 21:05:37,955 — File scanned: 4th_sem_result.pdf
+2025-12-08 21:05:37,956 — 127.0.0.1 - - [08/Dec/2025 21:05:37] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 21:05:44,653 — File scanned: college_id (1).pdf
+2025-12-08 21:05:44,653 — 127.0.0.1 - - [08/Dec/2025 21:05:44] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 21:06:11,304 — 127.0.0.1 - - [08/Dec/2025 21:06:11] "[35m[1mPOST /scan-phishing HTTP/1.1[0m" 500 -
+2025-12-08 21:06:21,870 — 127.0.0.1 - - [08/Dec/2025 21:06:21] "[35m[1mPOST /scan-phishing HTTP/1.1[0m" 500 -
+2025-12-08 21:06:22,460 — 127.0.0.1 - - [08/Dec/2025 21:06:22] "[35m[1mPOST /scan-phishing HTTP/1.1[0m" 500 -
+2025-12-08 21:06:23,504 — 127.0.0.1 - - [08/Dec/2025 21:06:23] "[35m[1mPOST /scan-phishing HTTP/1.1[0m" 500 -
+2025-12-08 21:06:49,148 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-08 21:06:49,988 —  * Restarting with stat
+2025-12-08 21:07:01,090 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 21:07:01,091 — [33mPress CTRL+C to quit[0m
+2025-12-08 21:07:01,092 —  * Restarting with stat
+2025-12-08 21:07:05,401 —  * Debugger is active!
+2025-12-08 21:07:05,403 —  * Debugger PIN: 190-080-522
+2025-12-08 21:07:09,146 — 127.0.0.1 - - [08/Dec/2025 21:07:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:07:09,155 — 127.0.0.1 - - [08/Dec/2025 21:07:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 21:07:09,158 — 127.0.0.1 - - [08/Dec/2025 21:07:09] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 21:07:09,827 — 127.0.0.1 - - [08/Dec/2025 21:07:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:07:09,841 — 127.0.0.1 - - [08/Dec/2025 21:07:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 21:07:09,842 — 127.0.0.1 - - [08/Dec/2025 21:07:09] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 21:07:14,546 — File scanned: Internship_certificate_IBM.pdf
+2025-12-08 21:07:14,547 — 127.0.0.1 - - [08/Dec/2025 21:07:14] "POST /analyze HTTP/1.1" 200 -
+2025-12-08 21:07:28,409 — Phishing text analyzed
+2025-12-08 21:07:28,410 — 127.0.0.1 - - [08/Dec/2025 21:07:28] "POST /scan-phishing HTTP/1.1" 200 -
+2025-12-08 21:07:38,411 — Password strength Checked
+2025-12-08 21:07:38,412 — 127.0.0.1 - - [08/Dec/2025 21:07:38] "POST /password-check HTTP/1.1" 200 -
+2025-12-08 21:07:42,039 — Phishing simulator accessed
+2025-12-08 21:07:42,040 — 127.0.0.1 - - [08/Dec/2025 21:07:42] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 21:07:44,197 — Attack visualizer viewed
+2025-12-08 21:07:44,199 — 127.0.0.1 - - [08/Dec/2025 21:07:44] "GET /attack-visualizer HTTP/1.1" 200 -
+2025-12-08 21:10:52,521 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 21:10:52,521 — [33mPress CTRL+C to quit[0m
+2025-12-08 21:10:52,523 —  * Restarting with stat
+2025-12-08 21:10:56,695 —  * Debugger is active!
+2025-12-08 21:10:56,696 —  * Debugger PIN: 190-080-522
+2025-12-08 21:11:00,713 — 127.0.0.1 - - [08/Dec/2025 21:11:00] "GET / HTTP/1.1" 200 -
+2025-12-08 21:11:00,738 — 127.0.0.1 - - [08/Dec/2025 21:11:00] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 21:11:00,753 — 127.0.0.1 - - [08/Dec/2025 21:11:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 21:19:00,503 — 127.0.0.1 - - [08/Dec/2025 21:19:00] "GET / HTTP/1.1" 200 -
+2025-12-08 21:19:00,512 — 127.0.0.1 - - [08/Dec/2025 21:19:00] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:00,514 — 127.0.0.1 - - [08/Dec/2025 21:19:00] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:03,161 — 127.0.0.1 - - [08/Dec/2025 21:19:03] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:03,176 — 127.0.0.1 - - [08/Dec/2025 21:19:03] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:03,177 — 127.0.0.1 - - [08/Dec/2025 21:19:03] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:26,341 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 21:19:26,341 — [33mPress CTRL+C to quit[0m
+2025-12-08 21:19:26,343 —  * Restarting with stat
+2025-12-08 21:19:30,790 —  * Debugger is active!
+2025-12-08 21:19:30,791 —  * Debugger PIN: 190-080-522
+2025-12-08 21:19:34,110 — 127.0.0.1 - - [08/Dec/2025 21:19:34] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:34,124 — 127.0.0.1 - - [08/Dec/2025 21:19:34] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:34,127 — 127.0.0.1 - - [08/Dec/2025 21:19:34] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:34,817 — 127.0.0.1 - - [08/Dec/2025 21:19:34] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:34,836 — 127.0.0.1 - - [08/Dec/2025 21:19:34] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:34,837 — 127.0.0.1 - - [08/Dec/2025 21:19:34] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:35,026 — 127.0.0.1 - - [08/Dec/2025 21:19:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:35,038 — 127.0.0.1 - - [08/Dec/2025 21:19:35] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:35,039 — 127.0.0.1 - - [08/Dec/2025 21:19:35] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:35,286 — 127.0.0.1 - - [08/Dec/2025 21:19:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:35,300 — 127.0.0.1 - - [08/Dec/2025 21:19:35] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:35,303 — 127.0.0.1 - - [08/Dec/2025 21:19:35] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:36,427 — 127.0.0.1 - - [08/Dec/2025 21:19:36] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:36,441 — 127.0.0.1 - - [08/Dec/2025 21:19:36] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:36,442 — 127.0.0.1 - - [08/Dec/2025 21:19:36] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:36,602 — 127.0.0.1 - - [08/Dec/2025 21:19:36] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:36,611 — 127.0.0.1 - - [08/Dec/2025 21:19:36] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:36,612 — 127.0.0.1 - - [08/Dec/2025 21:19:36] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:19:44,202 — 127.0.0.1 - - [08/Dec/2025 21:19:44] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:19:44,217 — 127.0.0.1 - - [08/Dec/2025 21:19:44] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 21:19:44,219 — 127.0.0.1 - - [08/Dec/2025 21:19:44] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 21:22:49,173 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 21:22:49,173 — [33mPress CTRL+C to quit[0m
+2025-12-08 21:22:49,174 —  * Restarting with stat
+2025-12-08 21:22:53,366 —  * Debugger is active!
+2025-12-08 21:22:53,367 —  * Debugger PIN: 190-080-522
+2025-12-08 21:22:57,107 — 127.0.0.1 - - [08/Dec/2025 21:22:57] "GET / HTTP/1.1" 200 -
+2025-12-08 21:22:57,115 — 127.0.0.1 - - [08/Dec/2025 21:22:57] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:57,118 — 127.0.0.1 - - [08/Dec/2025 21:22:57] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,374 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:22:58,392 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,392 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,548 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:22:58,559 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,560 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,718 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:22:58,731 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,733 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,887 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:22:58,900 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:22:58,902 — 127.0.0.1 - - [08/Dec/2025 21:22:58] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:23:10,727 — 127.0.0.1 - - [08/Dec/2025 21:23:10] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 21:23:10,775 — 127.0.0.1 - - [08/Dec/2025 21:23:10] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 21:23:10,777 — 127.0.0.1 - - [08/Dec/2025 21:23:10] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 22:12:25,247 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 22:12:25,247 — [33mPress CTRL+C to quit[0m
+2025-12-08 22:12:25,249 —  * Restarting with stat
+2025-12-08 22:12:29,417 —  * Debugger is active!
+2025-12-08 22:12:29,419 —  * Debugger PIN: 190-080-522
+2025-12-08 22:12:34,549 — 127.0.0.1 - - [08/Dec/2025 22:12:34] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:12:34,558 — 127.0.0.1 - - [08/Dec/2025 22:12:34] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 22:12:34,560 — 127.0.0.1 - - [08/Dec/2025 22:12:34] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 22:12:35,292 — 127.0.0.1 - - [08/Dec/2025 22:12:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:12:35,304 — 127.0.0.1 - - [08/Dec/2025 22:12:35] "[33mGET /{{%20url_for('static',%20filename='style.css')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 22:12:35,305 — 127.0.0.1 - - [08/Dec/2025 22:12:35] "[33mGET /{{%20url_for('static',%20filename='script.js')%20}} HTTP/1.1[0m" 404 -
+2025-12-08 22:13:24,782 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 22:13:24,782 — [33mPress CTRL+C to quit[0m
+2025-12-08 22:13:24,783 —  * Restarting with stat
+2025-12-08 22:13:32,344 —  * Debugger is active!
+2025-12-08 22:13:32,349 —  * Debugger PIN: 190-080-522
+2025-12-08 22:13:32,560 — 127.0.0.1 - - [08/Dec/2025 22:13:32] "GET / HTTP/1.1" 200 -
+2025-12-08 22:13:32,576 — 127.0.0.1 - - [08/Dec/2025 22:13:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:13:32,578 — 127.0.0.1 - - [08/Dec/2025 22:13:32] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:13:57,347 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 22:13:57,347 — [33mPress CTRL+C to quit[0m
+2025-12-08 22:13:57,348 —  * Restarting with stat
+2025-12-08 22:14:07,422 —  * Debugger is active!
+2025-12-08 22:14:07,427 —  * Debugger PIN: 190-080-522
+2025-12-08 22:14:07,644 — 127.0.0.1 - - [08/Dec/2025 22:14:07] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:14:07,655 — 127.0.0.1 - - [08/Dec/2025 22:14:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:14:07,656 — 127.0.0.1 - - [08/Dec/2025 22:14:07] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:14:51,841 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 22:14:51,841 — [33mPress CTRL+C to quit[0m
+2025-12-08 22:14:51,843 —  * Restarting with stat
+2025-12-08 22:15:00,246 —  * Debugger is active!
+2025-12-08 22:15:00,253 —  * Debugger PIN: 190-080-522
+2025-12-08 22:15:00,497 — 127.0.0.1 - - [08/Dec/2025 22:15:00] "GET / HTTP/1.1" 200 -
+2025-12-08 22:15:00,508 — 127.0.0.1 - - [08/Dec/2025 22:15:00] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2025-12-08 22:15:00,511 — 127.0.0.1 - - [08/Dec/2025 22:15:00] "[33mGET /script.js HTTP/1.1[0m" 404 -
+2025-12-08 22:16:30,353 — 127.0.0.1 - - [08/Dec/2025 22:16:30] "GET / HTTP/1.1" 200 -
+2025-12-08 22:16:31,360 — 127.0.0.1 - - [08/Dec/2025 22:16:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:16:31,757 — 127.0.0.1 - - [08/Dec/2025 22:16:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:17:05,503 — 127.0.0.1 - - [08/Dec/2025 22:17:05] "GET / HTTP/1.1" 200 -
+2025-12-08 22:17:05,516 — 127.0.0.1 - - [08/Dec/2025 22:17:05] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:17:05,517 — 127.0.0.1 - - [08/Dec/2025 22:17:05] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:22:40,661 — 127.0.0.1 - - [08/Dec/2025 22:22:40] "GET / HTTP/1.1" 200 -
+2025-12-08 22:22:40,674 — 127.0.0.1 - - [08/Dec/2025 22:22:40] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:22:40,684 — 127.0.0.1 - - [08/Dec/2025 22:22:40] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:25:04,367 — 127.0.0.1 - - [08/Dec/2025 22:25:04] "GET / HTTP/1.1" 200 -
+2025-12-08 22:25:04,375 — 127.0.0.1 - - [08/Dec/2025 22:25:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:25:04,377 — 127.0.0.1 - - [08/Dec/2025 22:25:04] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:26:53,147 — 127.0.0.1 - - [08/Dec/2025 22:26:53] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:26:53,169 — 127.0.0.1 - - [08/Dec/2025 22:26:53] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:26:53,208 — 127.0.0.1 - - [08/Dec/2025 22:26:53] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:32:30,867 — 127.0.0.1 - - [08/Dec/2025 22:32:30] "GET / HTTP/1.1" 200 -
+2025-12-08 22:32:30,885 — 127.0.0.1 - - [08/Dec/2025 22:32:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:32:30,945 — 127.0.0.1 - - [08/Dec/2025 22:32:30] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:32:35,659 — 127.0.0.1 - - [08/Dec/2025 22:32:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:32:35,681 — 127.0.0.1 - - [08/Dec/2025 22:32:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:32:35,682 — 127.0.0.1 - - [08/Dec/2025 22:32:35] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:35:30,228 — 127.0.0.1 - - [08/Dec/2025 22:35:30] "GET / HTTP/1.1" 200 -
+2025-12-08 22:35:30,248 — 127.0.0.1 - - [08/Dec/2025 22:35:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:35:30,265 — 127.0.0.1 - - [08/Dec/2025 22:35:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:35:32,946 — 127.0.0.1 - - [08/Dec/2025 22:35:32] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:35:32,973 — 127.0.0.1 - - [08/Dec/2025 22:35:32] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:35:32,975 — 127.0.0.1 - - [08/Dec/2025 22:35:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:38:40,436 — 127.0.0.1 - - [08/Dec/2025 22:38:40] "GET / HTTP/1.1" 200 -
+2025-12-08 22:38:40,458 — 127.0.0.1 - - [08/Dec/2025 22:38:40] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:38:40,500 — 127.0.0.1 - - [08/Dec/2025 22:38:40] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:39:22,265 — 127.0.0.1 - - [08/Dec/2025 22:39:22] "GET / HTTP/1.1" 200 -
+2025-12-08 22:39:22,284 — 127.0.0.1 - - [08/Dec/2025 22:39:22] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:39:22,286 — 127.0.0.1 - - [08/Dec/2025 22:39:22] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:39:38,129 — 127.0.0.1 - - [08/Dec/2025 22:39:38] "GET / HTTP/1.1" 200 -
+2025-12-08 22:39:38,153 — 127.0.0.1 - - [08/Dec/2025 22:39:38] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:39:38,175 — 127.0.0.1 - - [08/Dec/2025 22:39:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:40:19,421 — 127.0.0.1 - - [08/Dec/2025 22:40:19] "GET / HTTP/1.1" 200 -
+2025-12-08 22:40:19,440 — 127.0.0.1 - - [08/Dec/2025 22:40:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 22:40:19,441 — 127.0.0.1 - - [08/Dec/2025 22:40:19] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:43:36,363 — 127.0.0.1 - - [08/Dec/2025 22:43:36] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 22:43:36,376 — 127.0.0.1 - - [08/Dec/2025 22:43:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:43:36,378 — 127.0.0.1 - - [08/Dec/2025 22:43:36] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-08 22:46:08,526 — 127.0.0.1 - - [08/Dec/2025 22:46:08] "GET / HTTP/1.1" 200 -
+2025-12-08 22:46:08,538 — 127.0.0.1 - - [08/Dec/2025 22:46:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:46:08,540 — 127.0.0.1 - - [08/Dec/2025 22:46:08] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:46:22,907 — 127.0.0.1 - - [08/Dec/2025 22:46:22] "GET / HTTP/1.1" 200 -
+2025-12-08 22:46:22,928 — 127.0.0.1 - - [08/Dec/2025 22:46:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:46:22,930 — 127.0.0.1 - - [08/Dec/2025 22:46:22] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 22:46:38,425 — 127.0.0.1 - - [08/Dec/2025 22:46:38] "GET / HTTP/1.1" 200 -
+2025-12-08 22:46:38,440 — 127.0.0.1 - - [08/Dec/2025 22:46:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 22:46:38,440 — 127.0.0.1 - - [08/Dec/2025 22:46:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:03:03,117 — 127.0.0.1 - - [08/Dec/2025 23:03:03] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:03:03,133 — 127.0.0.1 - - [08/Dec/2025 23:03:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:03:03,136 — 127.0.0.1 - - [08/Dec/2025 23:03:03] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:34:47,976 — 127.0.0.1 - - [08/Dec/2025 23:34:47] "GET / HTTP/1.1" 200 -
+2025-12-08 23:34:47,991 — 127.0.0.1 - - [08/Dec/2025 23:34:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:34:48,296 — 127.0.0.1 - - [08/Dec/2025 23:34:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:44:41,908 — 127.0.0.1 - - [08/Dec/2025 23:44:41] "GET / HTTP/1.1" 200 -
+2025-12-08 23:44:41,924 — 127.0.0.1 - - [08/Dec/2025 23:44:41] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:44:41,934 — 127.0.0.1 - - [08/Dec/2025 23:44:41] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 23:44:43,335 — 127.0.0.1 - - [08/Dec/2025 23:44:43] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:44:43,358 — 127.0.0.1 - - [08/Dec/2025 23:44:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:44:43,360 — 127.0.0.1 - - [08/Dec/2025 23:44:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:46:05,406 — 127.0.0.1 - - [08/Dec/2025 23:46:05] "GET / HTTP/1.1" 200 -
+2025-12-08 23:46:05,425 — 127.0.0.1 - - [08/Dec/2025 23:46:05] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:46:05,440 — 127.0.0.1 - - [08/Dec/2025 23:46:05] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 23:46:16,660 — Phishing simulator accessed
+2025-12-08 23:46:16,662 — 127.0.0.1 - - [08/Dec/2025 23:46:16] "GET /phishing-simulator HTTP/1.1" 200 -
+2025-12-08 23:46:18,443 — Attack visualizer viewed
+2025-12-08 23:46:18,446 — 127.0.0.1 - - [08/Dec/2025 23:46:18] "GET /attack-visualizer HTTP/1.1" 200 -
+2025-12-08 23:52:15,308 — 127.0.0.1 - - [08/Dec/2025 23:52:15] "GET / HTTP/1.1" 200 -
+2025-12-08 23:52:15,323 — 127.0.0.1 - - [08/Dec/2025 23:52:15] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:52:15,333 — 127.0.0.1 - - [08/Dec/2025 23:52:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 23:53:34,907 — 127.0.0.1 - - [08/Dec/2025 23:53:34] "GET / HTTP/1.1" 200 -
+2025-12-08 23:53:34,923 — 127.0.0.1 - - [08/Dec/2025 23:53:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 23:53:34,929 — 127.0.0.1 - - [08/Dec/2025 23:53:34] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:53:37,074 — 127.0.0.1 - - [08/Dec/2025 23:53:37] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:53:37,096 — 127.0.0.1 - - [08/Dec/2025 23:53:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:53:37,097 — 127.0.0.1 - - [08/Dec/2025 23:53:37] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:53:38,037 — 127.0.0.1 - - [08/Dec/2025 23:53:38] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:53:38,053 — 127.0.0.1 - - [08/Dec/2025 23:53:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:53:38,056 — 127.0.0.1 - - [08/Dec/2025 23:53:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:53:50,964 — 127.0.0.1 - - [08/Dec/2025 23:53:50] "GET / HTTP/1.1" 200 -
+2025-12-08 23:53:50,977 — 127.0.0.1 - - [08/Dec/2025 23:53:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:53:50,983 — 127.0.0.1 - - [08/Dec/2025 23:53:50] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:53:51,901 — 127.0.0.1 - - [08/Dec/2025 23:53:51] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:53:51,919 — 127.0.0.1 - - [08/Dec/2025 23:53:51] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:53:51,919 — 127.0.0.1 - - [08/Dec/2025 23:53:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:53:52,116 — 127.0.0.1 - - [08/Dec/2025 23:53:52] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:53:52,147 — 127.0.0.1 - - [08/Dec/2025 23:53:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:53:52,149 — 127.0.0.1 - - [08/Dec/2025 23:53:52] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:53:58,988 — 127.0.0.1 - - [08/Dec/2025 23:53:58] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:53:59,001 — 127.0.0.1 - - [08/Dec/2025 23:53:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 23:53:59,016 — 127.0.0.1 - - [08/Dec/2025 23:53:59] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:54:08,327 — 127.0.0.1 - - [08/Dec/2025 23:54:08] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:54:08,347 — 127.0.0.1 - - [08/Dec/2025 23:54:08] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:54:08,350 — 127.0.0.1 - - [08/Dec/2025 23:54:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-08 23:54:09,277 — 127.0.0.1 - - [08/Dec/2025 23:54:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:54:09,307 — 127.0.0.1 - - [08/Dec/2025 23:54:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:54:09,315 — 127.0.0.1 - - [08/Dec/2025 23:54:09] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-08 23:54:09,463 — 127.0.0.1 - - [08/Dec/2025 23:54:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-08 23:54:09,483 — 127.0.0.1 - - [08/Dec/2025 23:54:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-08 23:54:09,487 — 127.0.0.1 - - [08/Dec/2025 23:54:09] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:07:20,841 — 127.0.0.1 - - [09/Dec/2025 00:07:20] "GET / HTTP/1.1" 200 -
+2025-12-09 00:07:20,861 — 127.0.0.1 - - [09/Dec/2025 00:07:20] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:07:20,873 — 127.0.0.1 - - [09/Dec/2025 00:07:20] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-09 00:08:43,434 — 127.0.0.1 - - [09/Dec/2025 00:08:43] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 00:08:43,459 — 127.0.0.1 - - [09/Dec/2025 00:08:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:08:43,486 — 127.0.0.1 - - [09/Dec/2025 00:08:43] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-09 00:09:19,034 — Password strength Checked
+2025-12-09 00:09:19,040 — 127.0.0.1 - - [09/Dec/2025 00:09:19] "POST /password-check HTTP/1.1" 200 -
+2025-12-09 00:10:28,740 — 127.0.0.1 - - [09/Dec/2025 00:10:28] "GET / HTTP/1.1" 200 -
+2025-12-09 00:10:28,752 — 127.0.0.1 - - [09/Dec/2025 00:10:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:10:28,757 — 127.0.0.1 - - [09/Dec/2025 00:10:28] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:18:46,607 — 127.0.0.1 - - [09/Dec/2025 00:18:46] "GET / HTTP/1.1" 200 -
+2025-12-09 00:18:46,618 — 127.0.0.1 - - [09/Dec/2025 00:18:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:18:46,622 — 127.0.0.1 - - [09/Dec/2025 00:18:46] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:19:19,243 — 127.0.0.1 - - [09/Dec/2025 00:19:19] "GET / HTTP/1.1" 200 -
+2025-12-09 00:19:19,254 — 127.0.0.1 - - [09/Dec/2025 00:19:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:19:19,258 — 127.0.0.1 - - [09/Dec/2025 00:19:19] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:20:31,627 — 127.0.0.1 - - [09/Dec/2025 00:20:31] "GET / HTTP/1.1" 200 -
+2025-12-09 00:20:31,639 — 127.0.0.1 - - [09/Dec/2025 00:20:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:20:31,643 — 127.0.0.1 - - [09/Dec/2025 00:20:31] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:22:00,128 — 127.0.0.1 - - [09/Dec/2025 00:22:00] "GET / HTTP/1.1" 200 -
+2025-12-09 00:22:00,138 — 127.0.0.1 - - [09/Dec/2025 00:22:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:22:00,143 — 127.0.0.1 - - [09/Dec/2025 00:22:00] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:22:11,238 — 127.0.0.1 - - [09/Dec/2025 00:22:11] "GET / HTTP/1.1" 200 -
+2025-12-09 00:22:11,253 — 127.0.0.1 - - [09/Dec/2025 00:22:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:22:11,261 — 127.0.0.1 - - [09/Dec/2025 00:22:11] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:29:19,224 — 127.0.0.1 - - [09/Dec/2025 00:29:19] "GET / HTTP/1.1" 200 -
+2025-12-09 00:29:19,256 — 127.0.0.1 - - [09/Dec/2025 00:29:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-09 00:29:19,329 — 127.0.0.1 - - [09/Dec/2025 00:29:19] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 00:30:31,430 — 127.0.0.1 - - [09/Dec/2025 00:30:31] "GET / HTTP/1.1" 200 -
+2025-12-09 00:30:31,442 — 127.0.0.1 - - [09/Dec/2025 00:30:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:30:31,447 — 127.0.0.1 - - [09/Dec/2025 00:30:31] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:30:51,832 — 127.0.0.1 - - [09/Dec/2025 00:30:51] "GET / HTTP/1.1" 200 -
+2025-12-09 00:30:51,845 — 127.0.0.1 - - [09/Dec/2025 00:30:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:30:51,847 — 127.0.0.1 - - [09/Dec/2025 00:30:51] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:30:53,962 — 127.0.0.1 - - [09/Dec/2025 00:30:53] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 00:30:53,979 — 127.0.0.1 - - [09/Dec/2025 00:30:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:30:53,982 — 127.0.0.1 - - [09/Dec/2025 00:30:53] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:31:08,341 — 127.0.0.1 - - [09/Dec/2025 00:31:08] "GET / HTTP/1.1" 200 -
+2025-12-09 00:31:08,351 — 127.0.0.1 - - [09/Dec/2025 00:31:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:31:08,359 — 127.0.0.1 - - [09/Dec/2025 00:31:08] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:32:05,576 — 127.0.0.1 - - [09/Dec/2025 00:32:05] "GET / HTTP/1.1" 200 -
+2025-12-09 00:32:05,593 — 127.0.0.1 - - [09/Dec/2025 00:32:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:32:05,593 — 127.0.0.1 - - [09/Dec/2025 00:32:05] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:36:20,878 — 127.0.0.1 - - [09/Dec/2025 00:36:20] "GET / HTTP/1.1" 200 -
+2025-12-09 00:36:20,889 — 127.0.0.1 - - [09/Dec/2025 00:36:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:36:20,895 — 127.0.0.1 - - [09/Dec/2025 00:36:20] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:37:12,894 — 127.0.0.1 - - [09/Dec/2025 00:37:12] "GET / HTTP/1.1" 200 -
+2025-12-09 00:37:12,905 — 127.0.0.1 - - [09/Dec/2025 00:37:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:37:12,908 — 127.0.0.1 - - [09/Dec/2025 00:37:12] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:38:24,793 — 127.0.0.1 - - [09/Dec/2025 00:38:24] "GET / HTTP/1.1" 200 -
+2025-12-09 00:38:24,804 — 127.0.0.1 - - [09/Dec/2025 00:38:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:38:24,806 — 127.0.0.1 - - [09/Dec/2025 00:38:24] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:38:26,090 — 127.0.0.1 - - [09/Dec/2025 00:38:26] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 00:38:26,106 — 127.0.0.1 - - [09/Dec/2025 00:38:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:38:26,107 — 127.0.0.1 - - [09/Dec/2025 00:38:26] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:38:26,291 — 127.0.0.1 - - [09/Dec/2025 00:38:26] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 00:38:26,309 — 127.0.0.1 - - [09/Dec/2025 00:38:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 00:38:26,310 — 127.0.0.1 - - [09/Dec/2025 00:38:26] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 00:42:36,967 — 127.0.0.1 - - [09/Dec/2025 00:42:36] "GET / HTTP/1.1" 200 -
+2025-12-09 00:42:36,979 — 127.0.0.1 - - [09/Dec/2025 00:42:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:01:23,162 — 127.0.0.1 - - [09/Dec/2025 01:01:23] "GET / HTTP/1.1" 200 -
+2025-12-09 01:01:23,174 — 127.0.0.1 - - [09/Dec/2025 01:01:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:03:31,821 — 127.0.0.1 - - [09/Dec/2025 01:03:31] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:03:31,841 — 127.0.0.1 - - [09/Dec/2025 01:03:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:05:43,797 — 127.0.0.1 - - [09/Dec/2025 01:05:43] "GET / HTTP/1.1" 200 -
+2025-12-09 01:05:43,823 — 127.0.0.1 - - [09/Dec/2025 01:05:43] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-09 01:05:43,864 — 127.0.0.1 - - [09/Dec/2025 01:05:43] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:06:01,774 — 127.0.0.1 - - [09/Dec/2025 01:06:01] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:06:01,979 — 127.0.0.1 - - [09/Dec/2025 01:06:01] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:06:03,473 — 127.0.0.1 - - [09/Dec/2025 01:06:03] "[33mGET /start-simulation HTTP/1.1[0m" 404 -
+2025-12-09 01:06:04,693 — 127.0.0.1 - - [09/Dec/2025 01:06:04] "[33mPOST /check-password HTTP/1.1[0m" 404 -
+2025-12-09 01:06:07,278 — 127.0.0.1 - - [09/Dec/2025 01:06:07] "[33mGET /view-attacks HTTP/1.1[0m" 404 -
+2025-12-09 01:06:28,246 — 127.0.0.1 - - [09/Dec/2025 01:06:28] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:06:28,263 — 127.0.0.1 - - [09/Dec/2025 01:06:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:06:28,264 — 127.0.0.1 - - [09/Dec/2025 01:06:28] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:06:29,355 — 127.0.0.1 - - [09/Dec/2025 01:06:29] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:06:29,375 — 127.0.0.1 - - [09/Dec/2025 01:06:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:06:29,376 — 127.0.0.1 - - [09/Dec/2025 01:06:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:06:50,975 — Password strength Checked
+2025-12-09 01:06:50,976 — 127.0.0.1 - - [09/Dec/2025 01:06:50] "POST /password-check HTTP/1.1" 200 -
+2025-12-09 01:07:27,516 — 127.0.0.1 - - [09/Dec/2025 01:07:27] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:07:27,536 — 127.0.0.1 - - [09/Dec/2025 01:07:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:07:27,537 — 127.0.0.1 - - [09/Dec/2025 01:07:27] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:07:28,594 — 127.0.0.1 - - [09/Dec/2025 01:07:28] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:07:28,621 — 127.0.0.1 - - [09/Dec/2025 01:07:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:07:28,622 — 127.0.0.1 - - [09/Dec/2025 01:07:28] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:07:34,457 — 127.0.0.1 - - [09/Dec/2025 01:07:34] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:07:37,320 — 127.0.0.1 - - [09/Dec/2025 01:07:37] "[33mPOST /check-password HTTP/1.1[0m" 404 -
+2025-12-09 01:07:39,738 — 127.0.0.1 - - [09/Dec/2025 01:07:39] "[33mGET /start-simulation HTTP/1.1[0m" 404 -
+2025-12-09 01:08:50,973 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:08:52,774 —  * Restarting with stat
+2025-12-09 01:09:12,463 —  * Restarting with stat
+2025-12-09 01:09:28,058 —  * Debugger is active!
+2025-12-09 01:09:28,061 —  * Debugger PIN: 190-080-522
+2025-12-09 01:09:48,573 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-09 01:09:48,573 — [33mPress CTRL+C to quit[0m
+2025-12-09 01:09:48,577 —  * Restarting with stat
+2025-12-09 01:09:55,264 —  * Debugger is active!
+2025-12-09 01:09:55,268 —  * Debugger PIN: 190-080-522
+2025-12-09 01:10:09,772 — 127.0.0.1 - - [09/Dec/2025 01:10:09] "GET / HTTP/1.1" 200 -
+2025-12-09 01:10:09,803 — 127.0.0.1 - - [09/Dec/2025 01:10:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:10:09,807 — 127.0.0.1 - - [09/Dec/2025 01:10:09] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:10:24,565 — Password strength Checked
+2025-12-09 01:10:24,566 — 127.0.0.1 - - [09/Dec/2025 01:10:24] "POST /password-check HTTP/1.1" 200 -
+2025-12-09 01:10:47,652 — 127.0.0.1 - - [09/Dec/2025 01:10:47] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:10:47,670 — 127.0.0.1 - - [09/Dec/2025 01:10:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:10:47,684 — 127.0.0.1 - - [09/Dec/2025 01:10:47] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:10:48,652 — 127.0.0.1 - - [09/Dec/2025 01:10:48] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:10:48,679 — 127.0.0.1 - - [09/Dec/2025 01:10:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:10:48,681 — 127.0.0.1 - - [09/Dec/2025 01:10:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:10:48,807 — 127.0.0.1 - - [09/Dec/2025 01:10:48] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:10:48,831 — 127.0.0.1 - - [09/Dec/2025 01:10:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:10:48,834 — 127.0.0.1 - - [09/Dec/2025 01:10:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:10:49,142 — 127.0.0.1 - - [09/Dec/2025 01:10:49] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:10:49,164 — 127.0.0.1 - - [09/Dec/2025 01:10:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:10:49,166 — 127.0.0.1 - - [09/Dec/2025 01:10:49] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:10:49,311 — 127.0.0.1 - - [09/Dec/2025 01:10:49] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:10:49,331 — 127.0.0.1 - - [09/Dec/2025 01:10:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:10:49,336 — 127.0.0.1 - - [09/Dec/2025 01:10:49] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:10:57,771 — 127.0.0.1 - - [09/Dec/2025 01:10:57] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:10:57,952 — 127.0.0.1 - - [09/Dec/2025 01:10:57] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:10:58,124 — 127.0.0.1 - - [09/Dec/2025 01:10:58] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:11:01,703 — 127.0.0.1 - - [09/Dec/2025 01:11:01] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:11:02,183 — 127.0.0.1 - - [09/Dec/2025 01:11:02] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:17:29,429 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:17:29,431 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:17:31,189 —  * Restarting with stat
+2025-12-09 01:17:31,207 —  * Restarting with stat
+2025-12-09 01:20:48,438 —  * Restarting with stat
+2025-12-09 01:20:48,846 —  * Restarting with stat
+2025-12-09 01:21:04,338 —  * Debugger is active!
+2025-12-09 01:21:04,349 —  * Debugger PIN: 190-080-522
+2025-12-09 01:21:04,642 —  * Debugger is active!
+2025-12-09 01:21:04,645 —  * Debugger PIN: 190-080-522
+2025-12-09 01:21:04,821 — 127.0.0.1 - - [09/Dec/2025 01:21:04] "GET / HTTP/1.1" 200 -
+2025-12-09 01:21:04,840 — 127.0.0.1 - - [09/Dec/2025 01:21:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:21:04,845 — 127.0.0.1 - - [09/Dec/2025 01:21:04] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:21:22,441 — Password strength Checked
+2025-12-09 01:21:22,441 — 127.0.0.1 - - [09/Dec/2025 01:21:22] "POST /password-check HTTP/1.1" 200 -
+2025-12-09 01:24:07,559 — 127.0.0.1 - - [09/Dec/2025 01:24:07] "GET / HTTP/1.1" 200 -
+2025-12-09 01:24:09,073 — 127.0.0.1 - - [09/Dec/2025 01:24:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:24:36,867 — 127.0.0.1 - - [09/Dec/2025 01:24:36] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:26:37,546 — 127.0.0.1 - - [09/Dec/2025 01:26:37] "GET / HTTP/1.1" 200 -
+2025-12-09 01:26:37,560 — 127.0.0.1 - - [09/Dec/2025 01:26:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:26:37,568 — 127.0.0.1 - - [09/Dec/2025 01:26:37] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:26:42,464 — 127.0.0.1 - - [09/Dec/2025 01:26:42] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:26:46,764 — 127.0.0.1 - - [09/Dec/2025 01:26:46] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:29:18,341 — 127.0.0.1 - - [09/Dec/2025 01:29:18] "GET / HTTP/1.1" 200 -
+2025-12-09 01:29:18,351 — 127.0.0.1 - - [09/Dec/2025 01:29:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:29:18,354 — 127.0.0.1 - - [09/Dec/2025 01:29:18] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:29:26,674 — 127.0.0.1 - - [09/Dec/2025 01:29:26] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:29:27,446 — 127.0.0.1 - - [09/Dec/2025 01:29:27] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:29:30,870 — 127.0.0.1 - - [09/Dec/2025 01:29:30] "[33mGET /start-simulation HTTP/1.1[0m" 404 -
+2025-12-09 01:30:28,341 — 127.0.0.1 - - [09/Dec/2025 01:30:28] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:30:28,360 — 127.0.0.1 - - [09/Dec/2025 01:30:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:30:28,365 — 127.0.0.1 - - [09/Dec/2025 01:30:28] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:30:29,017 — 127.0.0.1 - - [09/Dec/2025 01:30:29] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:30:29,039 — 127.0.0.1 - - [09/Dec/2025 01:30:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:30:29,041 — 127.0.0.1 - - [09/Dec/2025 01:30:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:30:29,191 — 127.0.0.1 - - [09/Dec/2025 01:30:29] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:30:29,214 — 127.0.0.1 - - [09/Dec/2025 01:30:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:30:29,216 — 127.0.0.1 - - [09/Dec/2025 01:30:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:30:31,975 — 127.0.0.1 - - [09/Dec/2025 01:30:31] "[33mGET /start-simulation HTTP/1.1[0m" 404 -
+2025-12-09 01:30:38,831 — 127.0.0.1 - - [09/Dec/2025 01:30:38] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:30:39,396 — 127.0.0.1 - - [09/Dec/2025 01:30:39] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:30:39,572 — 127.0.0.1 - - [09/Dec/2025 01:30:39] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:30:39,750 — 127.0.0.1 - - [09/Dec/2025 01:30:39] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:30:42,316 — 127.0.0.1 - - [09/Dec/2025 01:30:42] "[33mGET /view-attacks HTTP/1.1[0m" 404 -
+2025-12-09 01:33:49,533 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-09 01:33:49,533 — [33mPress CTRL+C to quit[0m
+2025-12-09 01:33:49,537 —  * Restarting with stat
+2025-12-09 01:33:56,983 —  * Debugger is active!
+2025-12-09 01:33:56,990 —  * Debugger PIN: 190-080-522
+2025-12-09 01:34:09,446 — 127.0.0.1 - - [09/Dec/2025 01:34:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:34:09,481 — 127.0.0.1 - - [09/Dec/2025 01:34:09] "[33mGET /static/script.js HTTP/1.1[0m" 404 -
+2025-12-09 01:34:09,482 — 127.0.0.1 - - [09/Dec/2025 01:34:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:34:43,043 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:34:43,171 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:34:43,869 —  * Restarting with stat
+2025-12-09 01:34:43,987 —  * Restarting with stat
+2025-12-09 01:34:52,563 —  * Debugger is active!
+2025-12-09 01:34:52,566 —  * Debugger PIN: 190-080-522
+2025-12-09 01:34:53,543 —  * Debugger is active!
+2025-12-09 01:34:53,547 —  * Debugger PIN: 190-080-522
+2025-12-09 01:35:05,251 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:35:05,278 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:35:06,202 —  * Restarting with stat
+2025-12-09 01:35:06,207 —  * Restarting with stat
+2025-12-09 01:35:13,989 —  * Debugger is active!
+2025-12-09 01:35:13,989 —  * Debugger is active!
+2025-12-09 01:35:13,991 —  * Debugger PIN: 190-080-522
+2025-12-09 01:38:39,436 — 127.0.0.1 - - [09/Dec/2025 01:38:39] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:38:39,452 — 127.0.0.1 - - [09/Dec/2025 01:38:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:38:39,458 — 127.0.0.1 - - [09/Dec/2025 01:38:39] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:38:43,807 — 127.0.0.1 - - [09/Dec/2025 01:38:43] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:38:48,361 — 127.0.0.1 - - [09/Dec/2025 01:38:48] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:38:52,681 — 127.0.0.1 - - [09/Dec/2025 01:38:52] "[33mGET /start-simulation HTTP/1.1[0m" 404 -
+2025-12-09 01:38:53,927 — 127.0.0.1 - - [09/Dec/2025 01:38:53] "[33mGET /view-attacks HTTP/1.1[0m" 404 -
+2025-12-09 01:39:20,094 — 127.0.0.1 - - [09/Dec/2025 01:39:20] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:39:20,175 — 127.0.0.1 - - [09/Dec/2025 01:39:20] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-12-09 01:39:20,182 — 127.0.0.1 - - [09/Dec/2025 01:39:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:39:36,948 — 127.0.0.1 - - [09/Dec/2025 01:39:36] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:39:40,037 — 127.0.0.1 - - [09/Dec/2025 01:39:40] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:39:52,600 — 127.0.0.1 - - [09/Dec/2025 01:39:52] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:41:47,180 — 127.0.0.1 - - [09/Dec/2025 01:41:47] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:42:08,052 — 127.0.0.1 - - [09/Dec/2025 01:42:08] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:42:08,116 — 127.0.0.1 - - [09/Dec/2025 01:42:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:42:08,126 — 127.0.0.1 - - [09/Dec/2025 01:42:08] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:42:14,105 — 127.0.0.1 - - [09/Dec/2025 01:42:14] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:42:17,466 — 127.0.0.1 - - [09/Dec/2025 01:42:17] "[33mPOST /analyze-phishing HTTP/1.1[0m" 404 -
+2025-12-09 01:42:19,454 — 127.0.0.1 - - [09/Dec/2025 01:42:19] "[33mPOST /check-password HTTP/1.1[0m" 404 -
+2025-12-09 01:42:21,065 — 127.0.0.1 - - [09/Dec/2025 01:42:21] "[33mGET /start-simulation HTTP/1.1[0m" 404 -
+2025-12-09 01:49:50,843 — 127.0.0.1 - - [09/Dec/2025 01:49:50] "GET / HTTP/1.1" 200 -
+2025-12-09 01:49:50,868 — 127.0.0.1 - - [09/Dec/2025 01:49:50] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:49:50,884 — 127.0.0.1 - - [09/Dec/2025 01:49:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-09 01:50:04,011 — 127.0.0.1 - - [09/Dec/2025 01:50:04] "[33mPOST /scan-file HTTP/1.1[0m" 404 -
+2025-12-09 01:51:49,286 — 127.0.0.1 - - [09/Dec/2025 01:51:49] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:51:49,325 — 127.0.0.1 - - [09/Dec/2025 01:51:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:51:49,392 — 127.0.0.1 - - [09/Dec/2025 01:51:49] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:51:55,804 — Password strength Checked
+2025-12-09 01:51:55,804 — 127.0.0.1 - - [09/Dec/2025 01:51:55] "POST /password-check HTTP/1.1" 200 -
+2025-12-09 01:57:17,849 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading

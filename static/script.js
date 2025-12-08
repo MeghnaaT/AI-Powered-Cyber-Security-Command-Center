@@ -1,110 +1,156 @@
-// static/script.js
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('uploadForm');
-  const resultDiv = document.getElementById('result');
+// Basic client-side handlers for Cyber File Analyzer
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const fileInput = document.getElementById('fileInput');
-    if (!fileInput.files || fileInput.files.length === 0) {
-      alert('Please select a file to analyze.');
-      return;
-    }
-    const file = fileInput.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-
-    resultDiv.style.display = 'block';
-    resultDiv.textContent = '🔍 Scanning file...';
-
-    try {
-      const resp = await fetch('/analyze', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (!resp.ok) {
-        const err = await resp.json();
-        resultDiv.innerHTML = `<strong style="color: #ffd1d1">Error:</strong> ${err.error || resp.statusText}`;
-        return;
-      }
-
-      const data = await resp.json();
-      resultDiv.innerHTML = prettyPrintAnalysis(data);
-    } catch (err) {
-      resultDiv.innerHTML = `<strong style="color: #ffd1d1">Network Error:</strong> ${err.message}`;
-    }
-  });
-
-  function prettyPrintAnalysis(d) {
-    let html = `<h3>Analysis Report</h3>`;
-    html += `<p><strong>Filename:</strong> ${escape(d.file.filename)} (${d.file.file_size} bytes)</p>`;
-    html += `<p><strong>Declared extension:</strong> ${escape(d.file.ext || '—')}</p>`;
-    html += `<p><strong>SHA-256:</strong> <code>${escape(d.file.sha256)}</code></p>`;
-    html += `<p><strong>MIME type detected:</strong> ${escape(d.mime_type)}</p>`;
-    html += `<p><strong>Magic header (hex):</strong> ${escape(d.magic_header)}</p>`;
-    html += `<p><strong>Detected type (by header):</strong> ${escape(d.detected_type || 'Unknown')}</p>`;
-    html += `<p><strong>Entropy:</strong> ${d.entropy} (0 - 8)</p>`;
-    html += `<p><strong>Risk score:</strong> ${d.risk_score}/100</p>`;
-
-    if (d.risk_reasons && d.risk_reasons.length) {
-      html += `<p><strong>Risk reasons:</strong></p><ul>`;
-      d.risk_reasons.forEach(r => { html += `<li>${escape(r)}</li>`; });
-      html += `</ul>`;
-    }
-
-    if (d.image_info) {
-      html += `<hr><p><strong>Image info:</strong></p>`;
-      html += `<pre>${escape(JSON.stringify(d.image_info, null, 2))}</pre>`;
-    }
-
-    if (d.pdf_info) {
-      html += `<hr><p><strong>PDF info:</strong></p>`;
-      html += `<pre>${escape(JSON.stringify(d.pdf_info, null, 2))}</pre>`;
-    }
-
-    if (d.ai_analysis) {
-  html += `<hr><h3>AI Threat Analysis</h3>`;
-  html += `<p><strong>Threat Level:</strong> ${escape(d.ai_analysis.ai_threat_level || 'Unknown')}</p>`;
-  html += `<p><strong>AI Confidence:</strong> ${d.ai_analysis.ai_confidence || 0}%</p>`;
-
-  if (Array.isArray(d.ai_analysis.ai_behavior_summary)) {
-    if (d.ai_analysis.ai_behavior_summary.length > 0) {
-      html += `<p><strong>Behavior Detected:</strong></p><ul>`;
-      d.ai_analysis.ai_behavior_summary.forEach(b => {
-        html += `<li>${escape(b)}</li>`;
-      });
-      html += `</ul>`;
-    }
-  }
-
-  if (Array.isArray(d.ai_analysis.ai_attack_techniques)) {
-    if (d.ai_analysis.ai_attack_techniques.length > 0) {
-      html += `<p><strong>Attack Techniques:</strong></p><ul>`;
-      d.ai_analysis.ai_attack_techniques.forEach(t => {
-        html += `<li>${escape(t)}</li>`;
-      });
-      html += `</ul>`;
-    }
-  }
+function showText(id, text) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
 }
-html += `
-  <hr>
-  <button onclick="downloadReport()">Download Scan Report</button>
-`;
 
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+}
 
-    return html;
-  }
+async function scanFile() {
+    const input = document.getElementById('fileInput');
+    const file = input && input.files && input.files[0];
+    if (!file) {
+        showText('fileResult', 'Please choose a file first');
+        return;
+    }
+    showText('fileResult', 'Scanning...');
+    const fd = new FormData();
+    fd.append('file', file);
+    try {
+        const resp = await fetch('/scan-file', { method: 'POST', body: fd });
+        if (!resp.ok) {
+            let errText = '';
+            try {
+                const errJson = await resp.json();
+                errText = JSON.stringify(errJson, null, 2);
+            } catch (e) {
+                try {
+                    errText = await resp.text();
+                } catch (e2) {
+                    errText = 'Invalid response body';
+                }
+            }
+            showText('fileResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
+            return;
+        }
+        const data = await resp.json();
+        showText('fileResult', data);
+    } catch (e) {
+        console.error('scanFile error', e);
+        showText('fileResult', 'Connection lost or server unreachable');
+    }
+}
 
-  // simple escape to avoid gadget injection in UI
-  function escape(s) {
-    if (s === null || s === undefined) return '';
-    return String(s).replace(/[&<>"'`]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;', '`':'&#96;'})[m]);
-  }
-});
+async function analyzePhishing() {
+    const text = document.getElementById('phishText').value;
+    if (!text || text.trim() === '') {
+        showText('phishResult', 'Please paste some text to analyze');
+        return;
+    }
+    showText('phishResult', 'Analyzing...');
+    try {
+        const resp = await fetch('/analyze-phishing', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text })
+        });
+        if (!resp.ok) {
+            let errText = '';
+            try {
+                const errJson = await resp.json();
+                errText = JSON.stringify(errJson, null, 2);
+            } catch (e) {
+                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
+            }
+            showText('phishResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
+            return;
+        }
+        const data = await resp.json();
+        showText('phishResult', data);
+    } catch (e) {
+        console.error('analyzePhishing error', e);
+        showText('phishResult', 'Connection lost or server unreachable');
+    }
+}
 
-function downloadReport(){
-  const content = document.getElementById
+async function checkPassword() {
+    const pw = document.getElementById('passwordInput').value;
+    if (!pw || pw.trim() === '') {
+        showText('passwordResult', 'Please enter a password');
+        return;
+    }
+    showText('passwordResult', 'Checking...');
+    try {
+        const resp = await fetch('/check-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password: pw })
+        });
+        if (!resp.ok) {
+            let errText = '';
+            try {
+                const errJson = await resp.json();
+                errText = JSON.stringify(errJson, null, 2);
+            } catch (e) {
+                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
+            }
+            showText('passwordResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
+            return;
+        }
+        const data = await resp.json();
+        showText('passwordResult', data);
+    } catch (e) {
+        console.error('checkPassword error', e);
+        showText('passwordResult', 'Connection lost or server unreachable');
+    }
+}
 
+async function startSimulation() {
+    showText('simulationResult', 'Starting simulation...');
+    try {
+        const resp = await fetch('/start-simulation');
+        if (!resp.ok) {
+            let errText = '';
+            try {
+                const errJson = await resp.json();
+                errText = JSON.stringify(errJson, null, 2);
+            } catch (e) {
+                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
+            }
+            showText('simulationResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
+            return;
+        }
+        const data = await resp.json();
+        showText('simulationResult', data);
+    } catch (e) {
+        console.error('startSimulation error', e);
+        showText('simulationResult', 'Connection lost or server unreachable');
+    }
+}
+
+async function viewAttacks() {
+    showText('attackResult', 'Fetching...');
+    try {
+        const resp = await fetch('/view-attacks');
+        if (!resp.ok) {
+            let errText = '';
+            try {
+                const errJson = await resp.json();
+                errText = JSON.stringify(errJson, null, 2);
+            } catch (e) {
+                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
+            }
+            showText('attackResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
+            return;
+        }
+        const data = await resp.json();
+        showText('attackResult', data);
+    } catch (e) {
+        console.error('viewAttacks error', e);
+        showText('attackResult', 'Connection lost or server unreachable');
+    }
 }

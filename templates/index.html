@@ -1,33 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">  <!--declares the character encoding-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--makes the webpage responsive, identifies the meta as a viewport perspective, ensures layout width matches the device and sets initial zoom level-->
-        <title>Cyber File Analyzer</title>  <!--set the browser tab title-->
+<head>
+    <meta charset="UTF-8">
+    <title>AI-Powered Cyber Security Suite</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
 
-            <link rel="stylesheet" href="/static/style.css">  <!--links an external css file for styling, indicates the linked resource is a stylesheet, path to css file-->
+<!-- Theme Toggle -->
+<div class="theme-toggle">
+    <button onclick="toggleTheme()">🌙 / ☀️</button>
+</div>
 
-    </head>
-    
-    <body>  <!--visible content and interactive elements-->
-        <div class="container"> <!--container element to group and center content, in css -->
-            <h1>Cybersecurity File Analyzer</h1>
-            <p class="subtitle">Upload a file to analyze magic numbers, metadata, entropy and risk</p>
-            
-            <form id="uploadForm" enctype="multipart/form-data"> <!--starts a form for file upload, id= unique identifier for scripting and styling, required for uploading files, ensures the file binary is sent correctly-->
-                <div class="upload-box">  <!--wrapper for the file input to style the upload area-->
-                    <input type="file" id="fileInput" name="file" required> <!--makes the input a file selector, javascript hook for event handling, key under which the file will be sent to the server-->
-                </div>
+<!-- Hero Section -->
+<section class="hero">
+    <h1>🛡️ AI-Powered Cyber Security Command Center</h1>
+    <p>Intelligent tools to detect cyber threats, prevent attacks and improve digital safety.</p>
+</section>
 
-                <div><button type="submit" id="scanBtn">Scan File</button></div>  <!--indicates the button submits the form, js look for styling or event handling-->
-            </form>
-            
-            <div id="result" class="result" style="display:none;"></div> <!--placeholder where scan results will be injected directly-->
-        </div>
+<!-- About Section -->
+<section class="about">
+    <h2>About This Project</h2>
+    <p>
+        This project was created to help people understand modern cyber threats in a simple and safe way.
+        Many people fall victim to phishing, malware and weak passwords every day due to lack of awareness.
+        This platform provides easy-to-use security tools that detect threats, analyze suspicious content,
+        and visually demonstrate how cyber attacks work.
+    </p>
 
-        <script src="/static/script.js"></script> <!--loads the js file that handles form submission, requests to backend and update the result div,  Path to js file in static directory-->
-           
-    </body>  
-        
+    <p>
+        <b>Problem it solves:</b> Lack of cybersecurity awareness, unsafe digital habits, and no easy educational
+        platform for beginners to test and understand cyber risks.
+    </p>
+</section>
+
+<!-- Tools Grid -->
+<div class="tools-grid">
+
+    <div class="tool-box">
+        <h3>📁 File Threat Scanner</h3>
+        <input type="file" id="fileInput">
+        <button onclick="scanFile()">Scan File</button>
+        <pre id="fileResult">Result will appear here...</pre>
+    </div>
+
+    <div class="tool-box">
+        <h3>🎣 AI Phishing Detector</h3>
+        <textarea id="phishText" placeholder="Paste suspicious message here..."></textarea>
+        <button onclick="analyzePhishing()">Analyze Message</button>
+        <pre id="phishResult">Result will appear here...</pre>
+    </div>
+
+    <div class="tool-box">
+        <h3>🔐 Password Strength Analyzer</h3>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button onclick="checkPassword()">Check Strength</button>
+        <pre id="passwordResult">Result will appear here...</pre>
+    </div>
+
+    <div class="tool-box">
+        <h3>🎯 Phishing Awareness Training</h3>
+        <button onclick="startSimulation()">Start Simulation</button>
+        <pre id="simulationResult">Simulation will appear here...</pre>
+    </div>
+
+</div>
+
+<!-- Center Box -->
+<div class="center-box">
+    <div class="tool-box">
+        <h3>🌐 Live Network Attack Visualizer</h3>
+        <button onclick="viewAttacks()">View Live Attacks</button>
+        <pre id="attackResult">Attack logs will appear here...</pre>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Cyber Security Command Center | Built by Meghna Tiwari</p>
+    <p>
+        LinkedIn: 
+        <a href="https://www.linkedin.com/in/meghna-tiwari-m24/" target="_blank">
+            meghna-tiwari-m24
+        </a> |
+        Email: 
+        <a href="mailto:meghnatw24@gmail.com">
+            your-meghnatw24@gmail.com
+        </a>
+    </p>
+</footer>
+
+
+<!-- Script -->
+<script src="/static/script.js"></script>
+
+</body>
 </html>
-    
