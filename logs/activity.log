@@ -648,3 +648,11 @@
 2025-12-09 01:51:55,804 — Password strength Checked
 2025-12-09 01:51:55,804 — 127.0.0.1 - - [09/Dec/2025 01:51:55] "POST /password-check HTTP/1.1" 200 -
 2025-12-09 01:57:17,849 —  * Detected change in 'E:\\meghna\\cyber_file_analyzer\\app.py', reloading
+2025-12-09 01:57:18,460 —  * Restarting with stat
+2025-12-09 01:58:05,923 —  * Debugger is active!
+2025-12-09 01:58:05,924 —  * Debugger PIN: 190-080-522
+2025-12-09 01:58:33,357 — 127.0.0.1 - - [09/Dec/2025 01:58:33] "[36mGET / HTTP/1.1[0m" 304 -
+2025-12-09 01:58:33,370 — 127.0.0.1 - - [09/Dec/2025 01:58:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-12-09 01:58:33,376 — 127.0.0.1 - - [09/Dec/2025 01:58:33] "GET /static/script.js HTTP/1.1" 200 -
+2025-12-09 01:58:36,923 — 127.0.0.1 - - [09/Dec/2025 01:58:36] "[33mGET /view-attacks HTTP/1.1[0m" 404 -
+2025-12-09 01:58:43,799 — 127.0.0.1 - - [09/Dec/2025 01:58:43] "[33mPOST /scan-file HTTP/1.1[0m" 404 -

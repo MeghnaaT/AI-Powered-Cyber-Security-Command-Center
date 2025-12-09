@@ -232,3 +232,47 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+/* Light mode */
+body.light-mode {
+  background: #f5f7fb;
+  color: #111;
+}
+
+/* Button style in light mode */
+.light-mode button {
+  background: linear-gradient(to right, #3ad59f, #23c6f3);
+  color: black;
+}
+
+/* Cards in light mode */
+.light-mode .card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+/* Result boxes */
+.result-box {
+  white-space: normal;
+}
+/* Floating Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 9999;
+
+  background: linear-gradient(135deg, #00f5a0, #00d9f5);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}

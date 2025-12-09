@@ -1,156 +1,159 @@
-// Basic client-side handlers for Cyber File Analyzer
+/******************************
+ 🔥 GLOBAL THEME TOGGLE
+******************************/
+const themeToggle = document.getElementById("themeToggle");
 
-function showText(id, text) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.textContent = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    // Change icon dynamically
+    if (document.body.classList.contains("light-mode")) {
+        themeToggle.innerText = "🌙";  // Click to go back to dark
+    } else {
+        themeToggle.innerText = "☀️";  // Click to go light
+    }
+});
+
+
+/******************************
+ 📂 FILE SCANNER
+******************************/
+function scanFile() {
+  const fileInput = document.getElementById("fileInput");
+  const resultBox = document.getElementById("fileResult");
+
+  if (!fileInput.files.length) {
+    resultBox.innerHTML = "❌ Please select a file.";
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+
+  resultBox.innerHTML = "⏳ Scanning file...";
+
+  fetch("/scan-file", {
+    method: "POST",
+    body: formData
+  })
+    .then(res => res.json())
+    .then(data => {
+      resultBox.innerHTML = `
+        ✅ <b>File Name:</b> ${data.filename}<br>
+        📦 <b>Size:</b> ${data.size_bytes} bytes<br>
+        📄 <b>Type:</b> ${data.detected_type}<br>
+        ⚠️ <b>Entropy Score:</b> ${data.byte_diversity}<br>
+        🛡 <b>Status:</b> ${data.verdict || "Safe"}
+      `;
+    })
+    .catch(() => {
+      resultBox.innerHTML = "❌ Error scanning file.";
+    });
 }
 
-function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
+/******************************
+ 📨 PHISHING MESSAGE ANALYZER
+******************************/
+function analyzePhishing() {
+  const text = document.getElementById("phishingText").value;
+  const resultBox = document.getElementById("phishingResult");
+
+  if (!text.trim()) {
+    resultBox.innerHTML = "❌ Please enter a message.";
+    return;
+  }
+
+  resultBox.innerHTML = "⏳ Analyzing message...";
+
+  fetch("/analyze-phishing", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text })
+  })
+    .then(res => res.json())
+    .then(data => {
+      resultBox.innerHTML = `
+        🔍 <b>Analysis:</b> ${data.message}<br>
+        🚨 <b>Threat Level:</b> ${data.verdict}<br>
+        ✅ <b>Safe:</b> ${data.is_safe ? "Yes" : "No"}
+      `;
+    })
+    .catch(() => {
+      resultBox.innerHTML = "❌ Error analyzing message.";
+    });
 }
 
-async function scanFile() {
-    const input = document.getElementById('fileInput');
-    const file = input && input.files && input.files[0];
-    if (!file) {
-        showText('fileResult', 'Please choose a file first');
-        return;
-    }
-    showText('fileResult', 'Scanning...');
-    const fd = new FormData();
-    fd.append('file', file);
-    try {
-        const resp = await fetch('/scan-file', { method: 'POST', body: fd });
-        if (!resp.ok) {
-            let errText = '';
-            try {
-                const errJson = await resp.json();
-                errText = JSON.stringify(errJson, null, 2);
-            } catch (e) {
-                try {
-                    errText = await resp.text();
-                } catch (e2) {
-                    errText = 'Invalid response body';
-                }
-            }
-            showText('fileResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
-            return;
-        }
-        const data = await resp.json();
-        showText('fileResult', data);
-    } catch (e) {
-        console.error('scanFile error', e);
-        showText('fileResult', 'Connection lost or server unreachable');
-    }
+/******************************
+ 🔐 PASSWORD STRENGTH CHECKER
+******************************/
+function checkPassword() {
+  const pwd = document.getElementById("passwordInput").value;
+  const resultBox = document.getElementById("passwordResult");
+
+  if (!pwd.trim()) {
+    resultBox.innerHTML = "❌ Please enter a password.";
+    return;
+  }
+
+  resultBox.innerHTML = "⏳ Checking strength...";
+
+  fetch("/check-password", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password: pwd })
+  })
+    .then(res => res.json())
+    .then(data => {
+      resultBox.innerHTML = `
+        🔐 <b>Strength:</b> ${data.strength}<br>
+        📊 <b>Score:</b> ${data.score}/100<br>
+        📝 <b>Suggestions:</b><br> - ${data.feedback.join("<br> - ")}
+      `;
+    })
+    .catch(() => {
+      resultBox.innerHTML = "❌ Error checking password.";
+    });
 }
 
-async function analyzePhishing() {
-    const text = document.getElementById('phishText').value;
-    if (!text || text.trim() === '') {
-        showText('phishResult', 'Please paste some text to analyze');
-        return;
-    }
-    showText('phishResult', 'Analyzing...');
-    try {
-        const resp = await fetch('/analyze-phishing', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text })
-        });
-        if (!resp.ok) {
-            let errText = '';
-            try {
-                const errJson = await resp.json();
-                errText = JSON.stringify(errJson, null, 2);
-            } catch (e) {
-                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
-            }
-            showText('phishResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
-            return;
-        }
-        const data = await resp.json();
-        showText('phishResult', data);
-    } catch (e) {
-        console.error('analyzePhishing error', e);
-        showText('phishResult', 'Connection lost or server unreachable');
-    }
+/******************************
+ 🎯 PHISHING SIMULATION
+******************************/
+function startSimulation() {
+  const resultBox = document.getElementById("simulationResult");
+
+  resultBox.innerHTML = "⏳ Running simulation...";
+
+  fetch("/start-simulation")
+    .then(res => res.json())
+    .then(data => {
+      resultBox.innerHTML = `🎯 <b>Status:</b> ${data.message}`;
+    })
+    .catch(() => {
+      resultBox.innerHTML = "❌ Error starting simulation.";
+    });
 }
 
-async function checkPassword() {
-    const pw = document.getElementById('passwordInput').value;
-    if (!pw || pw.trim() === '') {
-        showText('passwordResult', 'Please enter a password');
-        return;
-    }
-    showText('passwordResult', 'Checking...');
-    try {
-        const resp = await fetch('/check-password', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password: pw })
-        });
-        if (!resp.ok) {
-            let errText = '';
-            try {
-                const errJson = await resp.json();
-                errText = JSON.stringify(errJson, null, 2);
-            } catch (e) {
-                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
-            }
-            showText('passwordResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
-            return;
-        }
-        const data = await resp.json();
-        showText('passwordResult', data);
-    } catch (e) {
-        console.error('checkPassword error', e);
-        showText('passwordResult', 'Connection lost or server unreachable');
-    }
-}
+/******************************
+ 🌐 LIVE ATTACK VIEWER
+******************************/
+function viewAttacks() {
+  const resultBox = document.getElementById("attackResult");
 
-async function startSimulation() {
-    showText('simulationResult', 'Starting simulation...');
-    try {
-        const resp = await fetch('/start-simulation');
-        if (!resp.ok) {
-            let errText = '';
-            try {
-                const errJson = await resp.json();
-                errText = JSON.stringify(errJson, null, 2);
-            } catch (e) {
-                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
-            }
-            showText('simulationResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
-            return;
-        }
-        const data = await resp.json();
-        showText('simulationResult', data);
-    } catch (e) {
-        console.error('startSimulation error', e);
-        showText('simulationResult', 'Connection lost or server unreachable');
-    }
-}
+  resultBox.innerHTML = "⏳ Fetching attacks...";
 
-async function viewAttacks() {
-    showText('attackResult', 'Fetching...');
-    try {
-        const resp = await fetch('/view-attacks');
-        if (!resp.ok) {
-            let errText = '';
-            try {
-                const errJson = await resp.json();
-                errText = JSON.stringify(errJson, null, 2);
-            } catch (e) {
-                try { errText = await resp.text(); } catch (e2) { errText = 'Invalid response body'; }
-            }
-            showText('attackResult', `Error: ${resp.status} ${resp.statusText}\n${errText}`);
-            return;
-        }
-        const data = await resp.json();
-        showText('attackResult', data);
-    } catch (e) {
-        console.error('viewAttacks error', e);
-        showText('attackResult', 'Connection lost or server unreachable');
-    }
+  fetch("/live-attacks")
+    .then(res => res.json())
+    .then(data => {
+      const attacksHtml = data.attacks.map(a => `
+        🚨 <b>Attack Type:</b> ${a.type}<br>
+        🖥 <b>Source IP:</b> ${a.src}<br>
+        🎯 <b>Target:</b> ${a.dst}<br>
+        ⏱ <b>Time:</b> ${a.time}<br><hr>
+      `).join("");
+
+      resultBox.innerHTML = attacksHtml;
+    })
+    .catch(() => {
+      resultBox.innerHTML = "❌ Error loading attacks.";
+    });
 }
