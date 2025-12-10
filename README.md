@@ -1,15 +1,14 @@
-# 🛡️ AI-Powered Cyber Security Suite
+# 🛡️ AI-Powered Cyber Security Command Center
 
 <div align="center">
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.2-green.svg)](https://flask.palletsprojects.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
 
 **An intelligent, educational cybersecurity platform for threat detection, phishing analysis, and security awareness training.**
 
-[Features](#-features) • [Quick Start](#-quick-start) • [API Reference](#-api-endpoints) • [Architecture](#-architecture)
+[Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture)
 
 </div>
 
@@ -17,7 +16,7 @@
 
 ## 📋 Overview
 
-Cyber File Analyzer is a **production-ready educational platform** that combines static file analysis, ML-based phishing detection, and interactive security training. Built with Flask and Hugging Face Transformers, it provides explainable AI-driven threat assessments suitable for SOCs, security training, and cybersecurity education.
+AI-Powered Cyber Security Command Center is a **production-ready educational platform** that combines static file analysis, ML-based phishing detection, and interactive security training. Built with Flask and Hugging Face Transformers, it provides explainable AI-driven threat assessments suitable for SOCs, security training, and cybersecurity education.
 
 ### Key Highlights
 ✨ **BERT-based Phishing Detection** using Hugging Face transformers  
@@ -47,16 +46,12 @@ Cyber File Analyzer is a **production-ready educational platform** that combines
 **Example Output:**
 ```json
 {
-  "filename": "document.exe",
-  "detected_type": "exe",
-  "entropy": 7.82,
-  "risk_score": 75,
-  "risk_reasons": ["File looks like an executable", "High entropy"],
-  "ai_analysis": {
-    "ai_threat_level": "High",
-    "ai_confidence": 85,
-    "ai_behavior_summary": ["Payload packing / obfuscation"]
-  }
+  "filename": "document.pdf",
+  "size": "99061 bytes",
+  "detected_type": "PDF Document",
+  "entropy": "0.22%",
+  "magic number" :  "255044462D312E34",
+  "Status": "OK"
 }
 ```
 
@@ -169,46 +164,7 @@ Cyber File Analyzer is a **production-ready educational platform** that combines
 - **pip** (Python package manager)
 - **~500MB disk space** (includes Hugging Face model cache)
 
-### Installation (5 minutes)
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/MeghnaaT/Cyber-File-Analyzer.git
-   cd cyber_file_analyzer
-   ```
-
-2. **Create a virtual environment (recommended):**
-   ```bash
-   # Windows
-   python -m venv venv
-   venv\Scripts\activate
-
-   # macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   > Note: First run downloads Hugging Face BERT model (~100MB) - subsequent runs are instant
-
-4. **Start the application:**
-   ```bash
-   python app.py
-   ```
-   
-   Expected output:
-   ```
-   Starting Flask app
-   Running on http://127.0.0.1:5000
-   ```
-
-5. **Open in browser:**
-   ```
-   http://127.0.0.1:5000
-   ```
 
 ### First Test
 
@@ -219,7 +175,7 @@ Cyber File Analyzer is a **production-ready educational platform** that combines
 
 **Test phishing detection:**
 1. Go to "🎣 AI Phishing Detector"
-2. Paste: `Verify your PayPal at http://pay-pal.tk - click here NOW!`
+2. Paste: ` http://pay-pal.tk`
 3. See risk score and detailed threat indicators
 
 ---
@@ -247,8 +203,6 @@ cyber_file_analyzer/
 │
 ├── uploads/                        # Temporary file storage (created at runtime)
 ├── logs/                           # Application logs (created at runtime)
-│
-├── THREAT_MODEL.md                 # Detailed security architecture
 └── README.md                       # This file
 ```
 
@@ -417,49 +371,6 @@ curl -X POST http://127.0.0.1:5000/check-password \
 
 See `requirements.txt` for complete list (24 packages total).
 
----
-
-## 🚧 Roadmap
-
-### Phase 1 (Current) ✅
-- [x] File threat scanner
-- [x] BERT-based phishing detection
-- [x] Password strength analyzer
-- [x] Explainable AI layer
-
-### Phase 2 (Planned)
-- [ ] VirusTotal/AlienVault API integration
-- [ ] Advanced ML models (transformers for files)
-- [ ] Database for historical analysis
-- [ ] User authentication & dashboards
-- [ ] Behavioral sandboxing
-
-### Phase 3 (Future)
-- [ ] Multi-language support
-- [ ] Real-time network monitoring
-- [ ] WebSocket-based live updates
-- [ ] Docker containerization
-- [ ] Cloud deployment (AWS Lambda, GCP)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is open source and available under the **[MIT License](LICENSE)**.
-
----
 
 ## 👤 Author
 
@@ -489,6 +400,6 @@ This project is open source and available under the **[MIT License](LICENSE)**.
 
 **Made with ❤️ for the cybersecurity community**
 
-[⬆ back to top](#-ai-powered-cyber-security-suite)
+[⬆ back to top](#-ai-powered-cyber-security-command-center)
 
 </div>

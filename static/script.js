@@ -12,7 +12,21 @@ themeToggle.addEventListener("click", () => {
         themeToggle.innerText = "☀️";
     }
 });
-
+/******************************
+ 👁️ PASSWORD VISIBILITY TOGGLE
+******************************/
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById("passwordInput");
+  const toggleBtn = document.querySelector(".toggle-password-btn");
+  
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleBtn.textContent = "🙈";  // Changed eye icon
+  } else {
+    passwordInput.type = "password";
+    toggleBtn.textContent = "👁️";  // Back to eye icon
+  }
+}
 
 /******************************
  📂 FILE SCANNER
