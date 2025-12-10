@@ -6,11 +6,10 @@ const themeToggle = document.getElementById("themeToggle");
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
 
-    // Change icon dynamically
     if (document.body.classList.contains("light-mode")) {
-        themeToggle.innerText = "🌙";  // Click to go back to dark
+        themeToggle.innerText = "🌙";
     } else {
-        themeToggle.innerText = "☀️";  // Click to go light
+        themeToggle.innerText = "☀️";
     }
 });
 
@@ -38,15 +37,22 @@ function scanFile() {
   })
     .then(res => res.json())
     .then(data => {
+      if (data.error) {
+        resultBox.innerHTML = "❌ " + data.error;
+        return;
+      }
+
       resultBox.innerHTML = `
-        ✅ <b>File Name:</b> ${data.filename}<br>
-        📦 <b>Size:</b> ${data.size_bytes} bytes<br>
-        📄 <b>Type:</b> ${data.detected_type}<br>
-        ⚠️ <b>Entropy Score:</b> ${data.byte_diversity}<br>
-        🛡 <b>Status:</b> ${data.verdict || "Safe"}
+📄 File Name: ${data.filename}
+📦 Size: ${data.size_bytes} bytes
+🧬 Detected Type: ${data.detected_type}
+📊 Entropy: ${data.entropy_percentage}
+🔢 Magic Number: ${data.magic_number}
+✅ Status: OK
       `;
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error(err);
       resultBox.innerHTML = "❌ Error scanning file.";
     });
 }
@@ -54,34 +60,40 @@ function scanFile() {
 /******************************
  📨 PHISHING MESSAGE ANALYZER
 ******************************/
+
 function analyzePhishing() {
-  const text = document.getElementById("phishingText").value;
-  const resultBox = document.getElementById("phishingResult");
+    const text = document.getElementById("phishText").value.trim();
+    if (!text) return;
 
-  if (!text.trim()) {
-    resultBox.innerHTML = "❌ Please enter a message.";
-    return;
-  }
-
-  resultBox.innerHTML = "⏳ Analyzing message...";
-
-  fetch("/analyze-phishing", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text })
-  })
+    fetch("/analyze-phishing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text })
+    })
     .then(res => res.json())
     .then(data => {
-      resultBox.innerHTML = `
-        🔍 <b>Analysis:</b> ${data.message}<br>
-        🚨 <b>Threat Level:</b> ${data.verdict}<br>
-        ✅ <b>Safe:</b> ${data.is_safe ? "Yes" : "No"}
-      `;
-    })
-    .catch(() => {
-      resultBox.innerHTML = "❌ Error analyzing message.";
+        // Show the box only when results arrive
+        document.getElementById("phishResult").style.display = "block";
+
+        document.getElementById("verdictOutput").textContent = data.verdict;
+        document.getElementById("riskScoreOutput").textContent = data.risk_score;
+
+        const box = document.getElementById("reasonsListBox");
+
+        if (!data.reasons || data.reasons.length === 0) {
+            box.innerHTML = "No suspicious indicators found.";
+        } else {
+            box.innerHTML = data.reasons.map(r => "• " + r).join("<br>");
+        }
     });
 }
+document.getElementById("phishText").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        analyzePhishing();
+    }
+});
+
 
 /******************************
  🔐 PASSWORD STRENGTH CHECKER
@@ -102,36 +114,120 @@ function checkPassword() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ password: pwd })
   })
-    .then(res => res.json())
-    .then(data => {
-      resultBox.innerHTML = `
-        🔐 <b>Strength:</b> ${data.strength}<br>
-        📊 <b>Score:</b> ${data.score}/100<br>
-        📝 <b>Suggestions:</b><br> - ${data.feedback.join("<br> - ")}
+  .then(res => res.json())
+  .then(data => {
+
+    let suggestionsHTML = "";
+    if (data.feedback && data.feedback.length > 0) {
+      suggestionsHTML = `
+        <div class="suggestions-title">📌 Suggestions:</div>
+        <ul class="suggestions-list">
+          ${data.feedback.map(item => `<li>${item}</li>`).join("")}
+        </ul>
       `;
-    })
-    .catch(() => {
-      resultBox.innerHTML = "❌ Error checking password.";
-    });
+    }
+
+    resultBox.innerHTML = `
+      <div class="result-line"><b>🔐 Strength:</b> ${data.strength}</div>
+      <div class="result-line"><b>📊 Score:</b> ${data.score}/100</div>
+      ${suggestionsHTML}
+    `;
+  })
+  .catch(() => {
+    resultBox.innerHTML = "❌ Error checking password.";
+  });
 }
+
+
 
 /******************************
  🎯 PHISHING SIMULATION
 ******************************/
+/******************************
+ 🎯 PHISHING SIMULATION - INTERACTIVE QUIZ
+******************************/
+let quizIndex = 0;
+let quizScore = 0;
+
+const phishingQuizzes = [
+  {
+    message: "🔔 URGENT: Verify your bank account now!\nClick here: secure-banking-dot-tk\n⚠️ Your account will be locked!",
+    isPhishing: true,
+    explanation: "RED FLAGS: Urgency, unusual domain (.tk), misspelled URL, threats of account lockout"
+  },
+  {
+    message: "Hi! Please review the attached invoice for project X. Let me know if you need any clarifications.",
+    isPhishing: false,
+    explanation: "✅ LEGITIMATE: Professional tone, specific context, no urgency or threats, no suspicious links"
+  },
+  {
+    message: "🎁 CONGRATS! You won $1,000,000! Claim now: bit.ly/prize2025\nNo verification needed!",
+    isPhishing: true,
+    explanation: "RED FLAGS: Too good to be true, shortened URL, \"no verification needed\", fake prize"
+  }
+];
+
 function startSimulation() {
   const resultBox = document.getElementById("simulationResult");
-
-  resultBox.innerHTML = "⏳ Running simulation...";
-
-  fetch("/start-simulation")
-    .then(res => res.json())
-    .then(data => {
-      resultBox.innerHTML = `🎯 <b>Status:</b> ${data.message}`;
-    })
-    .catch(() => {
-      resultBox.innerHTML = "❌ Error starting simulation.";
-    });
+  quizIndex = 0;
+  quizScore = 0;
+  showQuiz();
 }
+
+function showQuiz() {
+  const resultBox = document.getElementById("simulationResult");
+  
+  if (quizIndex >= phishingQuizzes.length) {
+    resultBox.innerHTML = `
+      <div class="quiz-complete">
+        🎉 <b>Quiz Complete!</b><br>
+        Your Score: ${quizScore}/${phishingQuizzes.length} ✅<br><br>
+        <button onclick="startSimulation()" style="width: 100%; padding: 10px;">🔄 Retry Quiz</button>
+      </div>
+    `;
+    return;
+  }
+
+  const quiz = phishingQuizzes[quizIndex];
+  resultBox.innerHTML = `
+    <div class="quiz-container">
+      <div class="quiz-question">
+        <b>Question ${quizIndex + 1}/${phishingQuizzes.length}</b><br><br>
+        "${quiz.message}"
+      </div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="answerQuiz(true)">🚨 PHISHING</button>
+        <button class="quiz-option" onclick="answerQuiz(false)">✅ LEGITIMATE</button>
+      </div>
+    </div>
+  `;
+}
+
+function answerQuiz(userAnswer) {
+  const resultBox = document.getElementById("simulationResult");
+  const quiz = phishingQuizzes[quizIndex];
+  const isCorrect = userAnswer === quiz.isPhishing;
+
+  if (isCorrect) quizScore++;
+
+  const feedback = isCorrect 
+    ? `✅ <b>CORRECT!</b>` 
+    : `❌ <b>WRONG!</b> It was actually ${quiz.isPhishing ? "PHISHING" : "LEGITIMATE"}`;
+
+  resultBox.innerHTML = `
+    <div class="quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}">
+      ${feedback}<br><br>
+      <b>Why:</b> ${quiz.explanation}<br><br>
+      <button onclick="nextQuestion()" style="width: 100%; padding: 10px;">Next Question →</button>
+    </div>
+  `;
+}
+
+function nextQuestion() {
+  quizIndex++;
+  showQuiz();
+}
+
 
 /******************************
  🌐 LIVE ATTACK VIEWER
@@ -141,13 +237,12 @@ function viewAttacks() {
 
   resultBox.innerHTML = "⏳ Fetching attacks...";
 
-  fetch("/live-attacks")
+  fetch("/view-attacks")
     .then(res => res.json())
     .then(data => {
       const attacksHtml = data.attacks.map(a => `
         🚨 <b>Attack Type:</b> ${a.type}<br>
         🖥 <b>Source IP:</b> ${a.src}<br>
-        🎯 <b>Target:</b> ${a.dst}<br>
         ⏱ <b>Time:</b> ${a.time}<br><hr>
       `).join("");
 
@@ -157,3 +252,21 @@ function viewAttacks() {
       resultBox.innerHTML = "❌ Error loading attacks.";
     });
 }
+
+
+/******************************
+ ⌨️ ENTER KEY SUPPORT
+******************************/
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const active = document.activeElement;
+
+    if (active && active.id === "phishText") {
+      analyzePhishing();
+    }
+
+    if (active && active.id === "passwordInput") {
+      checkPassword();
+    }
+  }
+});

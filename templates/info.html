@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Learning Hub</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">🛡️ Cyber Security Suite</a>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Tools</a></li>
+            <li><a href="/info" class="nav-link active">Learn</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>📚 Cybersecurity Learning Hub</h1>
+    <p>Everything you need to know about cyber threats, attacks, and digital safety</p>
+</section>
+
+<!-- Main Content -->
+<div class="info-container">
+
+    <!-- Section 1: What is Cybersecurity? -->
+    <section class="info-section">
+        <h2>🔒 What is Cybersecurity?</h2>
+        <p>
+            Cybersecurity is the practice of protecting digital systems, networks, and information from malicious attacks, 
+            unauthorized access, and data breaches. In today's connected world, cybersecurity is critical for businesses, 
+            governments, and individuals.
+        </p>
+        <h4>Key Areas:</h4>
+        <ul>
+            <li><strong>Network Security</strong> - Protecting data in transit across networks</li>
+            <li><strong>Application Security</strong> - Securing software and applications from vulnerabilities</li>
+            <li><strong>Information Security</strong> - Protecting sensitive data from unauthorized access</li>
+            <li><strong>Identity & Access Management</strong> - Controlling who can access what resources</li>
+            <li><strong>Incident Response</strong> - Detecting and responding to security breaches</li>
+        </ul>
+    </section>
+
+    <!-- Section 2: Types of Cyber Attacks -->
+    <section class="info-section">
+        <h2>⚔️ Types of Cyber Attacks</h2>
+        
+        <div class="info-subsection">
+            <h3>🎣 Phishing Attacks</h3>
+            <p>
+                <strong>What is it?</strong> Phishing is a social engineering attack where attackers impersonate legitimate 
+                entities (banks, companies, services) to trick users into revealing sensitive information or clicking malicious links.
+            </p>
+            <p><strong>How it works:</strong></p>
+            <ul>
+                <li>Attacker sends a fake email or message that looks legitimate</li>
+                <li>Email contains urgent language ("Verify your account NOW!") to create panic</li>
+                <li>Link directs to a fake website that looks identical to the real one</li>
+                <li>User enters credentials, which are captured by the attacker</li>
+            </ul>
+            <p><strong>Red Flags:</strong> Suspicious sender, urgent language, requests for passwords, generic greetings, 
+            suspicious links, grammar/spelling errors, unfamiliar domains</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>🦠 Malware</h3>
+            <p>
+                <strong>What is it?</strong> Malware (malicious software) is any software designed to harm your computer, 
+                steal data, or give attackers control of your system.
+            </p>
+            <p><strong>Types of Malware:</strong></p>
+            <ul>
+                <li><strong>Viruses</strong> - Self-replicating programs that attach to files and spread</li>
+                <li><strong>Worms</strong> - Standalone programs that spread across networks without user interaction</li>
+                <li><strong>Trojans</strong> - Programs disguised as legitimate software but contain hidden malicious code</li>
+                <li><strong>Ransomware</strong> - Encrypts your files and demands payment to decrypt them</li>
+                <li><strong>Spyware</strong> - Secretly monitors user activity (keystrokes, browsing history)</li>
+                <li><strong>Adware</strong> - Displays unwanted advertisements and can track browsing behavior</li>
+            </ul>
+            <p><strong>How to Protect:</strong> Keep antivirus software updated, avoid suspicious downloads, 
+            don't open email attachments from unknown senders, use firewalls</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>🔐 Brute Force & Password Attacks</h3>
+            <p>
+                <strong>What is it?</strong> Attackers try thousands of password combinations to gain unauthorized access 
+                to accounts or systems.
+            </p>
+            <p><strong>Types:</strong></p>
+            <ul>
+                <li><strong>Dictionary Attack</strong> - Using common words and known passwords</li>
+                <li><strong>Brute Force</strong> - Trying all possible combinations systematically</li>
+                <li><strong>Credential Stuffing</strong> - Using leaked passwords from other breaches</li>
+            </ul>
+            <p><strong>Protection:</strong> Use strong, unique passwords (12+ characters with uppercase, lowercase, 
+            numbers, symbols), enable two-factor authentication (2FA), avoid password reuse</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>🌐 Man-in-the-Middle (MITM) Attacks</h3>
+            <p>
+                <strong>What is it?</strong> An attacker intercepts communication between two parties to eavesdrop 
+                on or manipulate the data being exchanged.
+            </p>
+            <p><strong>Scenario:</strong> You connect to public WiFi. Attacker intercepts your bank login credentials.</p>
+            <p><strong>Protection:</strong> Use VPNs on public WiFi, ensure HTTPS (padlock icon) when visiting websites, 
+            avoid public WiFi for sensitive transactions</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>💣 Denial of Service (DoS/DDoS)</h3>
+            <p>
+                <strong>What is it?</strong> Attackers flood a website or service with so much traffic that it becomes 
+                unavailable to legitimate users.
+            </p>
+            <p><strong>DoS vs DDoS:</strong></p>
+            <ul>
+                <li><strong>DoS</strong> - Single attacker, single source</li>
+                <li><strong>DDoS</strong> - Multiple attackers or compromised computers (botnets) attacking from many sources</li>
+            </ul>
+            <p><strong>Impact:</strong> Website downtime, lost revenue, reputation damage</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>⚡ SQL Injection</h3>
+            <p>
+                <strong>What is it?</strong> An attacker inserts malicious SQL code into a web form or URL to manipulate 
+                a database and gain unauthorized access.
+            </p>
+            <p><strong>Example:</strong> Instead of entering a username in a login form, an attacker enters: 
+            <code>' OR '1'='1</code> to bypass authentication</p>
+            <p><strong>Impact:</strong> Data theft, data manipulation, account takeover</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>🔓 Social Engineering</h3>
+            <p>
+                <strong>What is it?</strong> Manipulating people into divulging confidential information or performing 
+                actions that compromise security.
+            </p>
+            <p><strong>Tactics:</strong></p>
+            <ul>
+                <li><strong>Pretexting</strong> - Creating a false scenario to gain trust ("I'm from IT support")</li>
+                <li><strong>Baiting</strong> - Offering something enticing (USB drives in parking lots) to trick users</li>
+                <li><strong>Tailgating</strong> - Following someone through a secure door</li>
+                <li><strong>Phishing</strong> - As explained above</li>
+            </ul>
+            <p><strong>Defense:</strong> Be skeptical of unusual requests, verify identities independently, 
+            don't share passwords, report suspicious activity</p>
+        </div>
+
+    </section>
+
+    <!-- Section 3: Common Threats & Vulnerabilities -->
+    <section class="info-section">
+        <h2>⚠️ Common Vulnerabilities</h2>
+        
+        <div class="info-subsection">
+            <h3>Weak Passwords</h3>
+            <p>
+                Using simple passwords (123456, password, admin) makes accounts vulnerable to brute force and 
+                credential stuffing attacks. Always use strong, unique passwords for each service.
+            </p>
+            <p><strong>Strong Password Criteria:</strong></p>
+            <ul>
+                <li>At least 12 characters long</li>
+                <li>Mix of uppercase and lowercase letters</li>
+                <li>Numbers and special characters</li>
+                <li>Not based on personal information</li>
+                <li>Unique for each account</li>
+            </ul>
+        </div>
+
+        <div class="info-subsection">
+            <h3>Unpatched Software</h3>
+            <p>
+                Software updates and patches fix known security vulnerabilities. Not updating leaves your system 
+                exposed to attacks that exploit these known weaknesses.
+            </p>
+            <p><strong>Best Practice:</strong> Enable automatic updates for operating systems, browsers, and applications</p>
+        </div>
+
+        <div class="info-subsection">
+            <h3>Suspicious Links & Downloads</h3>
+            <p>
+                Clicking unknown links or downloading files from untrusted sources can install malware, 
+                phishing attacks, or ransomware.
+            </p>
+            <p><strong>Safety Rules:</strong></p>
+            <ul>
+                <li>Hover over links to see the actual URL before clicking</li>
+                <li>Only download files from official sources</li>
+                <li>Be cautious with email attachments from unknown senders</li>
+                <li>Verify file extensions (.exe files are especially risky)</li>
+            </ul>
+        </div>
+
+        <div class="info-subsection">
+            <h3>Public WiFi Risks</h3>
+            <p>
+                Open WiFi networks (airports, cafes) are not encrypted. Attackers can easily intercept data 
+                transmitted over these networks.
+            </p>
+            <p><strong>Protection:</strong> Use a VPN (Virtual Private Network) to encrypt your connection, 
+            avoid sensitive transactions on public WiFi</p>
+        </div>
+
+    </section>
+
+    <!-- Section 4: Best Practices -->
+    <section class="info-section">
+        <h2>✅ Cybersecurity Best Practices</h2>
+        
+        <div class="info-subsection">
+            <h3>For Individuals</h3>
+            <ul>
+                <li><strong>Use Strong Passwords</strong> - 12+ characters with mixed case, numbers, and symbols</li>
+                <li><strong>Enable Two-Factor Authentication (2FA)</strong> - Adds an extra layer of security</li>
+                <li><strong>Keep Software Updated</strong> - Enable automatic updates for OS and applications</li>
+                <li><strong>Use Antivirus Software</strong> - Keep it updated and run regular scans</li>
+                <li><strong>Be Cautious Online</strong> - Don't click suspicious links, verify sender identities</li>
+                <li><strong>Use a VPN</strong> - Especially on public WiFi networks</li>
+                <li><strong>Regular Backups</strong> - Store important data in secure locations to protect against ransomware</li>
+                <li><strong>Verify Website Security</strong> - Look for HTTPS and padlock icon before entering sensitive info</li>
+            </ul>
+        </div>
+
+        <div class="info-subsection">
+            <h3>For Organizations</h3>
+            <ul>
+                <li><strong>Employee Training</strong> - Regular cybersecurity awareness programs</li>
+                <li><strong>Access Control</strong> - Implement principle of least privilege</li>
+                <li><strong>Network Monitoring</strong> - Detect suspicious activity in real-time</li>
+                <li><strong>Incident Response Plan</strong> - Have procedures to respond to breaches</li>
+                <li><strong>Regular Security Audits</strong> - Identify vulnerabilities before attackers do</li>
+                <li><strong>Data Encryption</strong> - Protect sensitive data at rest and in transit</li>
+                <li><strong>Firewall & IDS</strong> - Intrusion Detection Systems to monitor threats</li>
+                <li><strong>Password Policies</strong> - Enforce strong password requirements</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 5: Staying Safe Online -->
+    <section class="info-section">
+        <h2>🛡️ Staying Safe Online - Quick Checklist</h2>
+        <div class="checklist">
+            <label><input type="checkbox"> ✓ I use unique, strong passwords for each account</label>
+            <label><input type="checkbox"> ✓ I have enabled 2FA/MFA on important accounts</label>
+            <label><input type="checkbox"> ✓ I update my software and OS regularly</label>
+            <label><input type="checkbox"> ✓ I use antivirus/anti-malware software</label>
+            <label><input type="checkbox"> ✓ I don't click links from unknown senders</label>
+            <label><input type="checkbox"> ✓ I verify website security (HTTPS) before entering data</label>
+            <label><input type="checkbox"> ✓ I use a VPN on public WiFi</label>
+            <label><input type="checkbox"> ✓ I back up my important files regularly</label>
+            <label><input type="checkbox"> ✓ I'm cautious about what I share on social media</label>
+            <label><input type="checkbox"> ✓ I report suspicious activity to appropriate authorities</label>
+        </div>
+    </section>
+
+    <!-- Section 6: When Something Goes Wrong -->
+    <section class="info-section">
+        <h2>🚨 If You've Been Compromised...</h2>
+        <div class="info-subsection">
+            <h4>Steps to Take Immediately:</h4>
+            <ol>
+                <li><strong>Disconnect</strong> - Unplug from internet to stop malware spread</li>
+                <li><strong>Change Passwords</strong> - Use a different device to change all passwords</li>
+                <li><strong>Enable 2FA</strong> - Add extra protection to important accounts</li>
+                <li><strong>Monitor Accounts</strong> - Check for unauthorized transactions or activity</li>
+                <li><strong>Run Security Scan</strong> - Use antivirus software to scan for malware</li>
+                <li><strong>Report It</strong> - Contact your bank, email provider, or relevant authorities</li>
+                <li><strong>Get Help</strong> - Consult a cybersecurity professional if needed</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Section 7: Resources -->
+    <section class="info-section">
+        <h2>📖 Additional Resources</h2>
+        <p><strong>Recommended Reading & Tools:</strong></p>
+        <ul>
+            <li><a href="https://www.nist.gov/cybersecurity" target="_blank">NIST Cybersecurity Framework</a> - Government standards</li>
+            <li><a href="https://www.cisa.gov/" target="_blank">CISA (Cybersecurity & Infrastructure Security Agency)</a> - US government agency</li>
+            <li><a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a> - Check if your email is in breaches</li>
+            <li><a href="https://www.shodan.io/" target="_blank">Shodan</a> - Internet search engine for devices</li>
+            <li><a href="https://www.virustotal.com/" target="_blank">VirusTotal</a> - Online malware scanner</li>
+            <li><a href="https://www.exploit-db.com/" target="_blank">Exploit Database</a> - Vulnerability information</li>
+        </ul>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Cyber Security Command Center | Built by Meghna Tiwari</p>
+    <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/meghna-tiwari-m24/" target="_blank">
+            meghna-tiwari-m24
+        </a> |
+        Email:
+        <a href="mailto:meghnatw24@gmail.com">
+            meghnatw24@gmail.com
+        </a>
+    </p>
+</footer>
+
+<button id="themeToggle" class="theme-toggle">☀️</button>
+<script src="/static/script.js"></script>
+
+</body>
+</html>

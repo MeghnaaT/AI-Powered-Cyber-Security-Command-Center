@@ -1,9 +1,12 @@
-# app.py
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import os
 import logging
 import traceback
+import re
+from urllib.parse import urlparse
+from difflib import SequenceMatcher
+
 
 app = Flask(__name__)
 CORS(app)
@@ -37,10 +40,152 @@ def detect_type_from_header(data: bytes) -> str:
             return name
     return "Unknown"
 
+def get_magic_number(data: bytes) -> str:
+    if not data:
+        return "N/A"
+    return data[:8].hex().upper()
+
+# -------------------------------
+# Advanced Phishing Detection Engine
+# -------------------------------
+
+POPULAR_BRANDS = [
+    "google.com", "microsoft.com", "amazon.com", "facebook.com",
+    "instagram.com", "paypal.com", "apple.com", "netflix.com"
+]
+
+SUSPICIOUS_TLDS = [".tk", ".ml", ".cf", ".gq", ".zip"]
+
+def extract_domain(url: str) -> str:
+    try:
+        url = url.strip().lower()
+
+        # Fix broken https //example.com → https://example.com
+        if url.startswith("https //"):
+            url = url.replace("https //", "https://")
+
+        if url.startswith("http //"):
+            url = url.replace("http //", "http://")
+
+        if not url.startswith("http"):
+            url = "http://" + url
+
+        domain = urlparse(url).netloc
+        return domain.lower()
+    except:
+        return ""
+
+
+def structural_risk(url):
+    score = 0
+    reasons = []
+
+    if len(url) > 75:
+        score += 10
+        reasons.append("Very long URL")
+
+    if "@" in url:
+        score += 20
+        reasons.append("Contains @ symbol")
+
+    if "-" in url:
+        score += 5
+        reasons.append("Contains hyphens")
+
+    if url.count(".") > 3:
+        score += 10
+        reasons.append("Too many subdomains")
+
+    if re.search(r"\d{3,}", url):
+        score += 10
+        reasons.append("Contains long number sequences")
+
+    return score, reasons
+
+
+def brand_impersonation(domain):
+    score = 0
+    reasons = []
+
+    for legit in POPULAR_BRANDS:
+        similarity = SequenceMatcher(None, domain, legit).ratio()
+        if similarity > 0.85 and domain != legit:
+            score += 35
+            reasons.append(f"Looks like fake version of {legit}")
+
+    return score, reasons
+
+
+def homoglyph_check(domain):
+    score = 0
+    reasons = []
+
+    tricks = ["rn", "vv", "0", "1", "l"]
+    for t in tricks:
+        if t in domain:
+            score += 10
+            reasons.append(f"Possible visual trick: {t}")
+
+    return score, reasons
+
+
+def tld_risk(domain):
+    score = 0
+    reasons = []
+
+    for tld in SUSPICIOUS_TLDS:
+        if domain.endswith(tld):
+            score += 15
+            reasons.append(f"Suspicious TLD: {tld}")
+
+    return score, reasons
+
+
+def detect_phishing_url(url):
+    domain = extract_domain(url)
+
+    total_score = 0
+    all_reasons = []
+
+    s, r = structural_risk(url)
+    total_score += s
+    all_reasons += r
+
+    s, r = brand_impersonation(domain)
+    total_score += s
+    all_reasons += r
+
+    s, r = homoglyph_check(domain)
+    total_score += s
+    all_reasons += r
+
+    s, r = tld_risk(domain)
+    total_score += s
+    all_reasons += r
+
+    if total_score >= 60:
+        verdict = "High Risk 🚩 Likely Phishing"
+    elif total_score >= 30:
+        verdict = "Suspicious ⚠️"
+    else:
+        verdict = "Likely Safe ✅"
+
+    return verdict, total_score, all_reasons
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 @app.route('/scan-file', methods=['POST'])
@@ -56,31 +201,42 @@ def scan_file():
         save_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded.filename)
         uploaded.save(save_path)
 
-        # read bytes for basic analysis
         with open(save_path, "rb") as f:
             data = f.read()
 
         size = len(data)
         detected_type = detect_type_from_header(data)
 
-        # a simple "entropy-like" quick heuristic (byte variety)
+        # entropy-like analysis
         unique_bytes = len(set(data))
-        byte_diversity = round((unique_bytes / max(1, size)) * 8, 3)  # scaled 0-8 like entropy-ish
+        byte_diversity = round((unique_bytes / max(1, size)) * 8, 3)
+        entropy_percent = round((byte_diversity / 8) * 100, 2)
+
+        # magic number
+        magic_number = get_magic_number(data)
 
         result = {
             "filename": uploaded.filename,
             "size_bytes": size,
             "detected_type": detected_type,
             "byte_diversity": byte_diversity,
+            "entropy_percentage": f"{entropy_percent}%",
+            "magic_number": magic_number,
             "message": "File scanned successfully",
             "status": "ok"
         }
 
-        logger.info(f"Scanned file: {uploaded.filename} size={size} detected_type={detected_type}")
+        logger.info(f"Scanned file: {uploaded.filename} | Type={detected_type}")
+
         return jsonify(result)
+
     except Exception as e:
         logger.error("Exception in /scan-file:\n" + traceback.format_exc())
-        return jsonify({"error": "Internal server error during file scan", "details": str(e)}), 500
+        return jsonify({
+            "error": "Internal server error during file scan",
+            "details": str(e)
+        }), 500
+
 
 
 @app.route('/analyze-phishing', methods=['POST'])
@@ -90,31 +246,24 @@ def analyze_phishing():
         if not data or 'text' not in data:
             return jsonify({"error": "No text provided"}), 400
 
-        text = data['text'].strip()
-        if text == "":
+        user_input = data['text'].strip()
+        if user_input == "":
             return jsonify({"error": "Empty text provided"}), 400
 
-        # Very simple heuristics for demonstration
-        suspicious_indicators = []
-        lower = text.lower()
-        if "click here" in lower or "verify your" in lower or "update your" in lower or "account suspended" in lower:
-            suspicious_indicators.append("Urgent call-to-action / phishing style phrase")
-        if "http://" in lower or "bit.ly" in lower or "tinyurl" in lower:
-            suspicious_indicators.append("Shortened / suspicious link")
-        if "bank" in lower and ("password" in lower or "account number" in lower or "pin" in lower):
-            suspicious_indicators.append("Requests sensitive banking info")
+        # Run advanced phishing engine
+        verdict, score, reasons = detect_phishing_url(user_input)
 
-        verdict = "Safe" if len(suspicious_indicators) == 0 else "Suspicious"
-        response = {
+        return jsonify({
             "verdict": verdict,
-            "indicators": suspicious_indicators,
-            "message": "Analysis complete"
-        }
-        logger.info(f"Phishing analyze: verdict={verdict} indicators={suspicious_indicators}")
-        return jsonify(response)
+            "risk_score": score,
+            "reasons": reasons
+        })
     except Exception as e:
         logger.error("Exception in /analyze-phishing:\n" + traceback.format_exc())
-        return jsonify({"error": "Internal server error during phishing analysis", "details": str(e)}), 500
+        return jsonify({
+            "error": "Internal server error during phishing analysis",
+            "details": str(e)
+        }), 500
 
 
 @app.route('/check-password', methods=['POST'])

@@ -8,23 +8,37 @@
 <body>
 
 <!-- Hero Section -->
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">🛡️ Cyber Security Suite</a>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link active">Tools</a></li>
+            <li><a href="/info" class="nav-link">Learn</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+        </ul>
+    </div>
+</nav>
+
 <section class="hero">
-    <h1>🛡️ AI-Powered Cyber Security Command Center</h1>
+    <h1>🛡 AI-Powered Cyber Security Command Center</h1>
     <p>Intelligent tools to detect cyber threats, prevent attacks and improve digital safety.</p>
 </section>
 
 <!-- About Section -->
 <section class="about">
     <h2>About This Website</h2>
-    <p>
+    <p class="about-text">
         This Website was created to help people understand modern cyber threats in a simple and safe way.
         Many people fall victim to phishing, malware and weak passwords every day due to lack of awareness.
         This platform provides easy-to-use security tools that detect threats, analyze suspicious content,
         and visually demonstrate how cyber attacks work.
     </p>
 
-    <p>
-        <b>Problem it solves:</b> Lack of cybersecurity awareness, unsafe digital habits, and no easy educational
+    <div class="about-gap"></div>
+
+    <p class="about-text">
+        <strong>Problem it solves:</strong> Lack of cybersecurity awareness, unsafe digital habits, and no easy educational
         platform for beginners to test and understand cyber risks.
     </p>
 </section>
@@ -34,29 +48,46 @@
 
     <div class="tool-box">
         <h3>📁 File Threat Scanner</h3>
+        <p class="tool-description">Upload any file to detect malware, suspicious content, and analyze encryption.</p>
         <input type="file" id="fileInput">
         <button onclick="scanFile()">Scan File</button>
-        <pre id="fileResult">Result will appear here...</pre>
+        <pre id="fileResult" class="result-box">Result will appear here...</pre>
     </div>
 
     <div class="tool-box">
         <h3>🎣 AI Phishing Detector</h3>
-        <textarea id="phishText" placeholder="Paste suspicious message here..."></textarea>
+        <p class="tool-description">Paste a URL or message to identify phishing attempts and malicious links.</p>
+        <textarea id="phishText" placeholder="Paste suspicious message…"></textarea>
         <button onclick="analyzePhishing()">Analyze Message</button>
-        <pre id="phishResult">Result will appear here...</pre>
+        <div id="phishResult" class="scan-result" style="display:none;">
+
+    <p><strong>Verdict:</strong> <span id="verdictOutput"></span></p>
+    <p><strong>Risk Score:</strong> <span id="riskScoreOutput"></span></p>
+
+    <p><strong>Reasons:</strong></p>
+    <div id="reasonsListBox"></div>
+
+</div>
+
+
     </div>
 
     <div class="tool-box">
         <h3>🔐 Password Strength Analyzer</h3>
+        <p class="tool-description">Test how strong your password is and get tips to make it more secure.</p>
         <input type="password" id="passwordInput" placeholder="Enter password">
         <button onclick="checkPassword()">Check Strength</button>
-        <pre id="passwordResult">Result will appear here...</pre>
+        <div id="passwordResult">
+    <ul class="suggestions-list" id="suggestionsList"></ul>
+</div>
+
     </div>
 
     <div class="tool-box">
         <h3>🎯 Phishing Awareness Training</h3>
+        <p class="tool-description">Learn how phishing attacks work through interactive simulated scenarios.</p>
         <button onclick="startSimulation()">Start Simulation</button>
-        <pre id="simulationResult">Simulation will appear here...</pre>
+        <pre id="simulationResult" class="result-box">Simulation will appear here...</pre>
     </div>
 
 </div>
@@ -65,21 +96,21 @@
 <div class="center-box">
     <div class="tool-box">
         <h3>🌐 Live Network Attack Visualizer</h3>
+        <p class="tool-description">See real-world examples of network attacks and understand common threat patterns.</p>
         <button onclick="viewAttacks()">View Attacks</button>
-        <pre id="attackResult">Attack logs will appear here...</pre>
+        <pre id="attackResult" class="result-box">Attack logs will appear here...</pre>
     </div>
 </div>
-
 
 <!-- Footer -->
 <footer>
     <p>© 2025 Cyber Security Command Center | Built by Meghna Tiwari</p>
     <p>
-        LinkedIn: 
+        LinkedIn:
         <a href="https://www.linkedin.com/in/meghna-tiwari-m24/" target="_blank">
             meghna-tiwari-m24
         </a> |
-        Email: 
+        Email:
         <a href="mailto:meghnatw24@gmail.com">
             meghnatw24@gmail.com
         </a>
@@ -88,7 +119,6 @@
 
 <button id="themeToggle" class="theme-toggle">☀️</button>
 <script src="/static/script.js"></script>
-
 
 </body>
 </html>
