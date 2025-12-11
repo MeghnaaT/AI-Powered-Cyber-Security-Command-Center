@@ -67,11 +67,6 @@ AI-Powered Cyber Security Command Center is a **production-ready educational pla
 - **Suspicious TLD Detection** - Flags risky domains (.tk, .ml, .cf, .gq, .zip)
 - **Risk Scoring** - Multi-factor threat assessment (0-100)
 
-**Risk Thresholds:**
-- ≥ 60: High Risk 🚩 Likely Phishing
-- 30-60: Suspicious ⚠️
-- < 30: Likely Safe ✅
-
 ### 🔐 Password Strength Analyzer
 *Evaluates password strength by scoring length, complexity, and character variety with personalized feedback.*
 
@@ -110,33 +105,6 @@ AI-Powered Cyber Security Command Center is a **production-ready educational pla
 ---
 
 ## 🏗️ Architecture & Design
-
-### Multi-Layered Threat Analysis Model
-
-```
-┌─────────────────────────────────────────────┐
-│     Explainable AI Threat Assessment        │
-├─────────────────────────────────────────────┤
-│  • ML-based classification (Hugging Face)   │
-│  • Rule-based heuristics                    │
-│  • Risk confidence scoring                  │
-├─────────────────────────────────────────────┤
-│        Static File Analysis Layer           │
-├─────────────────────────────────────────────┤
-│  • Magic number signature matching          │
-│  • Entropy-based anomaly detection          │
-│  • MIME type validation                     │
-│  • Metadata extraction                      │
-│  • Extension consistency checking           │
-├─────────────────────────────────────────────┤
-│      URL & Phishing Analysis Layer          │
-├─────────────────────────────────────────────┤
-│  • Domain impersonation detection           │
-│  • URL structural risk assessment           │
-│  • TLD reputation checking                  │
-│  • BERT text classification                 │
-└─────────────────────────────────────────────┘
-```
 
 ### Core Components
 
@@ -177,36 +145,6 @@ AI-Powered Cyber Security Command Center is a **production-ready educational pla
 1. Go to "🎣 AI Phishing Detector"
 2. Paste: ` http://pay-pal.tk`
 3. See risk score and detailed threat indicators
-
----
-
-## 📂 Project Structure
-
-```
-cyber_file_analyzer/
-│
-├── app.py                          # Flask application & API routes
-├── file_analyzer.py                # File threat analysis engine
-├── phishing_ai.py                  # Hugging Face BERT integration
-├── ai_engine.py                    # Explainable AI threat assessment
-├── requirements.txt                # Python dependencies (24 packages)
-│
-├── utils/
-│   └── entropy.py                  # Shannon entropy calculator
-│
-├── static/
-│   ├── style.css                   # Responsive dark/light theme CSS
-│   └── script.js                   # Client-side API handlers
-│
-├── templates/
-│   └── index.html                  # Main web interface
-│
-├── uploads/                        # Temporary file storage (created at runtime)
-├── logs/                           # Application logs (created at runtime)
-└── README.md                       # This file
-```
-
----
 
 ## 🔌 API Reference
 
@@ -371,32 +309,11 @@ curl -X POST http://127.0.0.1:5000/check-password \
 
 See `requirements.txt` for complete list (24 packages total).
 
-
-## 👤 Author
-
-**Meghna Tiwari**  
-📧 Email: [meghnatw24@gmail.com](mailto:meghnatw24@gmail.com)  
-🔗 LinkedIn: [meghna-tiwari-m24](https://www.linkedin.com/in/meghna-tiwari-m24/)
-
----
-
-## 📞 Support & Issues
-
-- 🐛 **Report a Bug:** [GitHub Issues](https://github.com/MeghnaaT/Cyber-File-Analyzer/issues)
-- 💬 **Ask a Question:** Start a discussion or email
-- 📚 **Read Docs:** Check [THREAT_MODEL.md](THREAT_MODEL.md) for architecture details
-
----
-
 ## ⚖️ Disclaimer
 
 > **⚠️ Educational Purpose Only**
 > 
-> This tool is designed for **educational and authorized security testing only**. Users are responsible for complying with all applicable laws and regulations. Unauthorized access to computer systems is illegal. Always obtain proper authorization before testing any systems.
-
----
-
-<div align="center">
+> This tool is designed for **educational and authorized security testing only**. 
 
 **Made with ❤️ for the cybersecurity community**
 
