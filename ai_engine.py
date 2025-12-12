@@ -5,12 +5,12 @@ def ai_threat_analysis(analysis_result):
     Output: AI-style threat assessment
     """
 
-    entropy = analysis_result.get("entropy",0)
+    entropy = analysis_result.get("entropy",0) # high entropy = high encryption
     mime = analysis_result.get("mime_type", "")
     detected_type = analysis_result.get("detected_type", "")
 
-    threat_level = "Low"
-    confidence = 30
+    threat_level = "Low" # baseline assumption
+    confidence = 30 # baseline assumption
     behaviour = []
     technique = []
 
@@ -35,7 +35,7 @@ def ai_threat_analysis(analysis_result):
         behaviour.append("Header did not match known file signatures")
         technique.append("File spoofing technique") 
 
-    #Normalize confidence
+    #Normalize confidence i,e,. caps confidence at 100% maximum
     if confidence >100:
         confidence =100
 

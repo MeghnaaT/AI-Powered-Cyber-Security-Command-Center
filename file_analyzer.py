@@ -1,14 +1,14 @@
 # file_analyzer.py
-import os
-import io
-import hashlib
-from PIL import Image, UnidentifiedImageError
-from PyPDF2 import PdfReader
-import magic  # python-magic-bin on Windows
-from utils.entropy import calculate_entropy
-from ai_engine import ai_threat_analysis
+import os # filesystem utilities
+import io # byte streams
+import hashlib # hashing
+from PIL import Image, UnidentifiedImageError # Pillow(PIL) = image metadat extraction
+from PyPDF2 import PdfReader # PyPDF2 = PDF metadata extraction
+import magic # MIME type detection via libmagic  # python-magic-bin on Windows 
+from utils.entropy import calculate_entropy # calculate_entropy = your custom entropy function
+from ai_engine import ai_threat_analysis # your explainable AI layer
 
-# Known magic numbers (hex) for quick checks (uppercase)
+# Known magic numbers (hex) for quick checks (uppercase), dictionary of "file signature codes"
 MAGIC_NUMBERS = {
     "jpg": "FFD8FF",
     "png": "89504E47",
@@ -21,11 +21,11 @@ MAGIC_NUMBERS = {
 
 def read_file_bytes(file_storage):
     """
-    Read bytes from Flask's FileStorage, reset stream pointer.
+    Read bytes from Flask's FileStorage, reset stream pointer so that file can read it again later.
     """
-    file_storage.stream.seek(0)
-    data = file_storage.read()
-    file_storage.stream.seek(0)
+    file_storage.stream.seek(0) # move to the start of the file #seek() = random access to file contents
+    data = file_storage.read() # read the entire content into memory
+    file_storage.stream.seek(0)# reset to start so other functions can read it too
     return data
 
 def get_basic_info(file_storage, file_bytes):
@@ -34,11 +34,11 @@ def get_basic_info(file_storage, file_bytes):
     """
     filename = file_storage.filename
     file_size = len(file_bytes)
-    ext = os.path.splitext(filename)[1].lower().lstrip(".")
-    sha256 = hashlib.sha256(file_bytes).hexdigest()
+    ext = os.path.splitext(filename)[1].lower().lstrip(".") # the file extension(like pdf). We take the part after the dot, lowercase it and remove the dot
+    sha256 = hashlib.sha256(file_bytes).hexdigest() # if the content changes the hash changes
     return {"filename": filename, "file_size": file_size, "ext": ext, "sha256": sha256}
 
-def detect_mime(file_bytes):
+def detect_mime(file_bytes): # MIME attack exploits browser behaviour
     """
     Use libmagic to detect mime type from bytes.
     """
@@ -46,20 +46,20 @@ def detect_mime(file_bytes):
         mime = magic.from_buffer(file_bytes, mime=True)
     except Exception:
         # fallback
-        mime = "application/octet-stream"
-    return mime
+        mime = "application/octet-stream" # use a generic "unknown library type if detection fails"
+    return mime # give the detected type
 
 def detect_magic_number(file_bytes, header_len=8):
     """
     Get header hex and try to match MAGIC_NUMBERS.
     """
-    header = file_bytes[:header_len].hex().upper()
-    detected = None
+    header = file_bytes[:header_len].hex().upper() # Read the first few bytes and convert them into uppercase hex. This is a file's "signature"
+    detected = None # Start as unknown
     for key, sig in MAGIC_NUMBERS.items():
-        if header.startswith(sig):
-            detected = key
+        if header.startswith(sig): # sig = known signature
+            detected = key # Set the detected type, if theres a known header
             break
-    return header, detected
+    return header, detected #reyrn raw header , type of file
 
 def extract_image_info(file_bytes):
     """
@@ -67,14 +67,14 @@ def extract_image_info(file_bytes):
     Returns dict or None if not image.
     """
     try:
-        with Image.open(io.BytesIO(file_bytes)) as im:
+        with Image.open(io.BytesIO(file_bytes)) as im: #try opening the bytes as an image
             info = {
                 "format": im.format,
-                "mode": im.mode,
+                "mode": im.mode, #Colour mode = RGB
                 "size": im.size,  # (width, height)
             }
-            # EXIF available?
-            exif = {}
+            # EXIF available? 
+            exif = {} #try to read camera metadata
             try:
                 raw_exif = im.getexif()
                 if raw_exif:
@@ -84,7 +84,7 @@ def extract_image_info(file_bytes):
                 exif = {}
             if exif:
                 info["exif_count"] = len(exif)
-                info["exif_sample"] = dict(list(exif.items())[:5])
+                info["exif_sample"] = dict(list(exif.items())[:5]) # if present, keep a small count and a small sample
             return info
     except UnidentifiedImageError:
         return None
@@ -103,7 +103,7 @@ def extract_pdf_info(file_bytes):
             # convert to normal dict and str
             for k, v in md.items():
                 info[str(k)] = str(v)
-        info["pages"] = len(reader.pages)
+        info["pages"] = len(reader.pages) # count number of pages in pdf
         return info
     except Exception:
         return None
