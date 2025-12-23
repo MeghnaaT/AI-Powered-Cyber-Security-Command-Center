@@ -85,7 +85,7 @@ def extract_image_info(file_bytes):
             if exif:
                 info["exif_count"] = len(exif)
                 info["exif_sample"] = dict(list(exif.items())[:5]) # if present, keep a small count and a small sample
-            return info
+            return info #if it's an image, return the info
     except UnidentifiedImageError:
         return None
     except Exception:
@@ -96,13 +96,13 @@ def extract_pdf_info(file_bytes):
     Try to read PDF metadata using PyPDF2.
     """
     try:
-        reader = PdfReader(io.BytesIO(file_bytes))
-        md = reader.metadata
+        reader = PdfReader(io.BytesIO(file_bytes)) # load the bytes as a PDF
+        md = reader.metadata #read document info/metadata
         info = {}
         if md:
             # convert to normal dict and str
             for k, v in md.items():
-                info[str(k)] = str(v)
+                info[str(k)] = str(v) # make sure keys and values are strings
         info["pages"] = len(reader.pages) # count number of pages in pdf
         return info
     except Exception:
@@ -113,17 +113,17 @@ def analyze_file(file_storage):
     Main function called from Flask route. Returns a dictionary
     with analysis results (JSON serializable).
     """
-    file_bytes = read_file_bytes(file_storage)
-    basic = get_basic_info(file_storage, file_bytes)
+    file_bytes = read_file_bytes(file_storage) #read raw data from uploaded file
+    basic = get_basic_info(file_storage, file_bytes) #get name, size, hash and extension
 
     # 1) Mime detection
-    mime = detect_mime(file_bytes)
+    mime = detect_mime(file_bytes) # Find the file types from bytes
 
     # 2) Magic number detection
-    header_hex, detected_type = detect_magic_number(file_bytes)
+    header_hex, detected_type = detect_magic_number(file_bytes) #Find the signature and map it to known types
 
     # 3) Entropy
-    entropy = calculate_entropy(file_bytes)
+    entropy = calculate_entropy(file_bytes) #more random = more complex = more risky + more likely to be packed/encrypted/malicious
 
     # 4) Try to extract format-specific metadata
     image_info = extract_image_info(file_bytes)
@@ -131,7 +131,7 @@ def analyze_file(file_storage):
 
     # 5) Heuristic risk scoring (explainable)
     risk = 0
-    reasons = []
+    reasons = [] # list of reasons for the risk score
 
     # entropy rule
     if entropy >= 7.5:
@@ -155,7 +155,7 @@ def analyze_file(file_storage):
 
     # cap risk
     if risk > 100:
-        risk = 100
+        risk = 100 # don't let the score exceed 100%
 
     # assemble result
     result = {
@@ -176,4 +176,4 @@ def analyze_file(file_storage):
     #merge both results
     result["ai_analysis"] = ai_result
 
-    return result
+    return result 
