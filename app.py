@@ -1,23 +1,23 @@
-from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
-import os
-import logging
-import traceback
-import re
-from urllib.parse import urlparse
-from difflib import SequenceMatcher
+from flask import Flask, render_template, request, jsonify # Flask web framework, render_template loads HTML files from the templates/ folder, request handles incoming requests(files,JSON), jsonify creates JSON responses
+from flask_cors import CORS # CORS handles cross-origin requests i,e,. allows frontend JS to call this backend even if hosted separately
+import os # file handling and directories
+import logging # logging events and errors
+import traceback # detailed error traces for debugging
+import re # regular expressions for pattern matching
+from urllib.parse import urlparse # URL parsing, extracting domain names from URLs
+from difflib import SequenceMatcher # string similarity checking for brand impersonation detection
 
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__) # create Flask app instance(object)
+CORS(app) # enable CORS so browser-based clients can access the API
 
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+UPLOAD_FOLDER = "uploads" # sets a folder called uploads to store uploaded files
+os.makedirs(UPLOAD_FOLDER, exist_ok=True) # creates it if it doesn't exist
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 
 # logging to console and file
-logging.basicConfig(level=logging.INFO, format="%(asctime)s — %(levelname)s — %(message)s")
-logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s — %(levelname)s — %(message)s") # configures logging to show time, severity level and message
+logger = logging.getLogger(__name__) # logger is used throughout the app to log events
 
 
 # Simple header-based type detection (no external deps)
@@ -34,16 +34,16 @@ MAGIC_SIGNATURES = {
 def detect_type_from_header(data: bytes) -> str:
     if not data:
         return "Unknown"
-    header = data[:8]
-    for sig, name in MAGIC_SIGNATURES.items():
+    header = data[:8] # reads first 8 bytes of file
+    for sig, name in MAGIC_SIGNATURES.items(): #compares against known signatures
         if header.startswith(sig):
-            return name
+            return name # returns detected type
     return "Unknown"
 
 def get_magic_number(data: bytes) -> str:
     if not data:
         return "N/A"
-    return data[:8].hex().upper()
+    return data[:8].hex().upper() # returns first 8 bytes as uppercase hex string
 
 # -------------------------------
 # Advanced Phishing Detection Engine
@@ -56,7 +56,7 @@ POPULAR_BRANDS = [
 
 SUSPICIOUS_TLDS = [".tk", ".ml", ".cf", ".gq", ".zip"]
 
-def extract_domain(url: str) -> str:
+def extract_domain(url: str) -> str: # cleans and normalizes a URL, extract domain from URL
     try:
         url = url.strip().lower()
 
@@ -76,7 +76,7 @@ def extract_domain(url: str) -> str:
         return ""
 
 
-def structural_risk(url):
+def structural_risk(url): # adds risk points based on URL structure
     score = 0
     reasons = []
 
@@ -103,7 +103,7 @@ def structural_risk(url):
     return score, reasons
 
 
-def brand_impersonation(domain):
+def brand_impersonation(domain): # Compares domain to popular brands using SequenceMatcher
     score = 0
     reasons = []
 
@@ -116,7 +116,8 @@ def brand_impersonation(domain):
     return score, reasons
 
 
-def homoglyph_check(domain):
+def homoglyph_check(domain): # def homoglyph_check(domain):
+    # Detects tricks like "rn" instead of "m", "vv" instead of "w", or numbers replacing letters
     score = 0
     reasons = []
 
@@ -130,6 +131,7 @@ def homoglyph_check(domain):
 
 
 def tld_risk(domain):
+    # Adds risk if domain ends with suspicious TLDs
     score = 0
     reasons = []
 
@@ -141,7 +143,8 @@ def tld_risk(domain):
     return score, reasons
 
 
-def detect_phishing_url(url):
+def detect_phishing_url(url): # advanced phishing detection combining multiple heuristics, Runs all checks, sums scores, collects reasons
+
     domain = extract_domain(url)
 
     total_score = 0
@@ -173,7 +176,7 @@ def detect_phishing_url(url):
     return verdict, total_score, all_reasons
 
 
-@app.route('/')
+@app.route('/') # serves the homepage
 def index():
     return render_template('index.html')
 
@@ -188,7 +191,7 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/scan-file', methods=['POST'])
+@app.route('/scan-file', methods=['POST']) # address /scan-file route, accepts POST requests with file uploads
 def scan_file():
     try:
         if 'file' not in request.files:
@@ -198,7 +201,7 @@ def scan_file():
         if uploaded.filename == "":
             return jsonify({"error": "Empty filename"}), 400
 
-        save_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded.filename)
+        save_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded.filename) # saves it to uploads/ folder
         uploaded.save(save_path)
 
         with open(save_path, "rb") as f:
@@ -269,7 +272,7 @@ def analyze_phishing():
 @app.route('/check-password', methods=['POST'])
 def check_password():
     try:
-        data = request.get_json(force=True, silent=True)
+        data = request.get_json(force=True, silent=True) # get JSON data from request
         if not data or 'password' not in data:
             return jsonify({"error": "No password provided"}), 400
         pwd = str(data['password'])
@@ -335,4 +338,4 @@ def view_attacks():
 
 if __name__ == '__main__':
     logger.info("Starting Flask app")
-    app.run(debug=True)
+    app.run(debug=True) # enables auto-reload and detailed error messages

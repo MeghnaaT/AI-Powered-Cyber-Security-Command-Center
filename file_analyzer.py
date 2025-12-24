@@ -176,4 +176,4 @@ def analyze_file(file_storage):
     #merge both results
     result["ai_analysis"] = ai_result
 
-    return result 
+    return result #give the complete analysis back to web route
