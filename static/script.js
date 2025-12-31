@@ -264,6 +264,129 @@ function viewAttacks() {
     });
 }
 
+function toggleAI() {
+  const chat = document.getElementById("ai-chat");
+  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+async function askAI() {
+  const input = document.getElementById("ai-question");
+  const msgBox = document.getElementById("ai-messages");
+  const question = input.value.trim();
+
+  if (!question) return;
+
+  msgBox.innerHTML += `<div><b>You:</b> ${question}</div>`;
+  input.value = "";
+
+  try {
+    const res = await fetch("/ask-ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question })
+    });
+
+    const data = await res.json();
+    msgBox.innerHTML += `<div><b>AI:</b> ${data.answer}</div>`;
+    msgBox.scrollTop = msgBox.scrollHeight;
+  } catch {
+    msgBox.innerHTML += `<div style="color:red">AI service error</div>`;
+  }
+}
+function toggleChat() {
+  const chat = document.getElementById("chat-widget");
+  const isOpen = chat.style.display === "flex";
+  chat.style.display = isOpen ? "none" : "flex";
+  if (!isOpen) {
+    // give browser a moment to render then focus the input so user can type immediately
+    setTimeout(() => {
+      const input = document.getElementById("chat-text");
+      if (input) input.focus();
+    }, 60);
+  }
+}
+
+function sendChat() {
+  const input = document.getElementById("chat-text");
+  const msgBox = document.getElementById("chat-messages");
+  if (!input || !msgBox) return;
+
+  const text = input.value.trim();
+  if (!text) return;
+  // append user's message locally (safe)
+  createMessage(msgBox, 'user', text);
+  msgBox.scrollTop = msgBox.scrollHeight;
+  input.value = "";
+
+  // send to backend if available
+  fetch("/ask-ai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question: text })
+  })
+  .then(res => res.json())
+  .then(data => {
+    const answer = data.answer || '[no response]';
+    createMessage(msgBox, 'ai', answer);
+    msgBox.scrollTop = msgBox.scrollHeight;
+  })
+  .catch(err => {
+    console.error(err);
+    createMessage(msgBox, 'ai', 'AI service error');
+    msgBox.scrollTop = msgBox.scrollHeight;
+  });
+}
+
+// create a safe formatted message element
+function createMessage(container, role, text) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'message ' + (role === 'user' ? 'user' : 'ai');
+
+  const body = document.createElement('div');
+  body.className = 'body';
+
+  // Escape HTML then preserve line breaks
+  const escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const parts = escaped.split('\n');
+  parts.forEach((part, idx) => {
+    const span = document.createElement('span');
+    span.textContent = part;
+    body.appendChild(span);
+    if (idx !== parts.length - 1) body.appendChild(document.createElement('br'));
+  });
+
+  wrapper.appendChild(body);
+  
+  // For AI messages, collapse long responses and add an expand button
+  if (role === 'ai') {
+    // after rendering, check height
+    setTimeout(() => {
+      if (body.scrollHeight > 160) {
+        body.classList.add('collapsed');
+
+        const btn = document.createElement('button');
+        btn.className = 'expand-btn';
+        btn.textContent = 'Expand';
+        btn.onclick = () => {
+          const expanded = body.classList.toggle('collapsed');
+          if (body.classList.contains('collapsed')) {
+            btn.textContent = 'Expand';
+          } else {
+            btn.textContent = 'Collapse';
+          }
+          // scroll the container to show the toggled content
+          container.scrollTop = container.scrollHeight;
+        };
+
+        const ctrl = document.createElement('div');
+        ctrl.style.marginTop = '6px';
+        ctrl.appendChild(btn);
+        wrapper.appendChild(ctrl);
+      }
+    }, 30);
+  }
+  container.appendChild(wrapper);
+}
 
 /******************************
  ⌨️ ENTER KEY SUPPORT
@@ -278,6 +401,11 @@ document.addEventListener("keydown", function (e) {
 
     if (active && active.id === "passwordInput") {
       checkPassword();
+    }
+    if (active && active.id === "chat-text") {
+      // prevent form submission-like behavior
+      e.preventDefault();
+      sendChat();
     }
   }
 });

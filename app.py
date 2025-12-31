@@ -6,6 +6,18 @@ import traceback # detailed error traces for debugging
 import re # regular expressions for pattern matching
 from urllib.parse import urlparse # URL parsing, extracting domain names from URLs
 from difflib import SequenceMatcher # string similarity checking for brand impersonation detection
+import google.generativeai as genai
+from dotenv import load_dotenv
+
+# Load environment variables from .env (if present)
+load_dotenv()
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+if not GEMINI_API_KEY:
+    # Allow the app to run in development without an API key.
+    # The /ask-ai route will return a friendly error if AI isn't configured.
+    print("Warning: GEMINI_API_KEY not found — running in offline mode")
 
 
 app = Flask(__name__) # create Flask app instance(object)
@@ -334,6 +346,126 @@ def view_attacks():
     except Exception as e:
         logger.error("Exception in /view-attacks:\n" + traceback.format_exc())
         return jsonify({"error": "Internal server error during view-attacks", "details": str(e)}), 500
+
+
+@app.route('/ask-ai', methods=['POST'])
+def ask_ai():
+    try:
+        data = request.get_json(force=True, silent=True) or {}
+        question = (data.get('question') or '').strip()
+        if not question:
+            return jsonify({"answer": ""})
+
+        # If model is not configured, return a helpful offline/fallback response
+        if model is None:
+            fallback = (
+                "I'm running in offline mode and can't reach the AI service right now. "
+                "Here are some suggestions you can try locally:\n"
+                "- Ask: 'What is OSINT?'\n"
+                "- Ask: 'How to spot a phishing email?'\n"
+                "- Ask: 'What is a port scan?'\n"
+                "(Or set GEMINI_API_KEY in your .env to enable the AI)"
+            )
+            return jsonify({"answer": fallback})
+
+        try:
+            answer = call_gemini(question)
+            return jsonify({"answer": answer})
+        except Exception:
+            err = traceback.format_exc()
+            logger.error("Exception calling AI model:\n" + err)
+            # Development: include traceback in response to help debugging (no keys exposed)
+            return jsonify({
+                "answer": "I'm unable to reach the AI service right now. Try again later or set GEMINI_API_KEY.",
+                "error": err
+            })
+    except Exception as e:
+        logger.error("Exception in /ask-ai:\n" + traceback.format_exc())
+        return jsonify({"answer": "AI service error", "details": str(e)}), 500
+
+# ai_engine.py
+import os
+import google.generativeai as genai
+
+# Configure Gemini only if API key is present — otherwise run in offline mode
+model = None
+selected_model_name = None
+if GEMINI_API_KEY:
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        # Try to discover available models and pick a suitable one automatically
+        # genai.list_models() may return a generator/iterable - iterate it safely
+        candidate_names = []
+        try:
+            available = genai.list_models()
+            for m in available:
+                # m may be an object with .name, or a dict
+                name = None
+                if hasattr(m, 'name'):
+                    name = getattr(m, 'name')
+                elif isinstance(m, dict):
+                    name = m.get('name') or m.get('id')
+                else:
+                    name = str(m)
+
+                if name:
+                    candidate_names.append(name)
+        except Exception:
+            # fallback: attempt to coerce to list and extract names
+            try:
+                available = list(genai.list_models())
+                for m in available:
+                    if hasattr(m, 'name'):
+                        candidate_names.append(m.name)
+                    elif isinstance(m, dict):
+                        candidate_names.append(m.get('name') or m.get('id'))
+                    else:
+                        candidate_names.append(str(m))
+            except Exception:
+                candidate_names = []
+
+        # prefer models with common text/chat identifiers
+        preferred = [n for n in candidate_names if any(k in n.lower() for k in ('bison','gemini','chat','text'))]
+        if preferred:
+            candidate = preferred[0]
+        elif candidate_names:
+            candidate = candidate_names[0]
+        else:
+            candidate = None
+
+        if candidate:
+            try:
+                model = genai.GenerativeModel(candidate)
+                selected_model_name = candidate
+                logger.info(f"Auto-selected AI model: {selected_model_name}")
+            except Exception:
+                model = None
+        else:
+            model = None
+    except Exception:
+        model = None
+
+def call_gemini(prompt):
+    if model is None:
+        raise RuntimeError("AI model not configured")
+    response = model.generate_content(
+        f"You are a cybersecurity expert. Answer clearly:\n{prompt}"
+    )
+    return response.text
+
+
+# Diagnostic endpoint (safe): shows whether server has an AI model configured (does NOT reveal keys)
+@app.route('/ai-status', methods=['GET'])
+def ai_status():
+    try:
+        configured = model is not None
+        info = {"configured": configured}
+        if configured and selected_model_name:
+            info["model"] = selected_model_name
+        return jsonify(info)
+    except Exception as e:
+        logger.error("Exception in /ai-status:\n" + traceback.format_exc())
+        return jsonify({"configured": False, "error": str(e)}), 500
 
 
 if __name__ == '__main__':

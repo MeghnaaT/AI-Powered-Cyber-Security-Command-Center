@@ -313,6 +313,24 @@
 </footer>
 
 <button id="themeToggle" class="theme-toggle">☀️</button>
+<!-- Floating Chat Button -->
+<div id="chat-fab" onclick="toggleChat()">🤖</div>
+
+<!-- Chat Window -->
+<div id="chat-widget">
+    <div class="chat-header">
+        <span>CyberGuard AI</span>
+        <button onclick="toggleChat()">✕</button>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div class="chat-input">
+        <input id="chat-text" tabindex="0" aria-label="Ask cybersecurity question" placeholder="Ask cybersecurity question..." />
+        <button onclick="sendChat()">Send</button>
+    </div>
+</div>
+
 <script src="/static/script.js"></script>
 
 </body>
